@@ -43,7 +43,7 @@ video {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 3.8rem;
     white-space: nowrap;
     background-color: #384245;
     color: #737A7C;
@@ -58,7 +58,7 @@ video {
 .audioplayer .ap-status {
     position: relative;
     margin: 0 auto;
-    width: 1100px;
+    width: 80%;
 }
 
 .audioplayer .ap-controller {
@@ -88,10 +88,11 @@ svg:not(:root) {
 }
 
 .audioplayer svg:not(.ap-svg-exclude) {
-    width: 28px;
-    height: 28px;
+    width: 2rem;
+    height: 2rem;
     vertical-align: middle;
     transition: 0.2s;
+    margin-left: .8rem;
 }
 
 .audioplayer .ap-progress-thumb svg {
@@ -117,31 +118,19 @@ svg:not(:root) {
 /*left*/
 
 .audioplayer .ap-controller-left .ap-cover {
-    width: 60px;
-    height: 60px;
+    width: 3.8rem;
+    height: 3.8rem;
     background: #E7E7E7;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
     cursor: pointer;
 }
 
-.audioplayer .ap-controller-left .ap-button {
-    padding: 0 8px;
-}
-
-.audioplayer .ap-controller-left .ap-skipback-button {
-    margin-left: 16px;
-}
-
-.audioplayer .ap-controller-left .ap-skipforward-button {
-    margin-right: 16px;
-}
-
 
 /*center*/
 
 .audioplayer .ap-controller-center {
-    padding: 10px 0;
+    padding: 1rem 1rem;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -230,28 +219,27 @@ svg:not(:root) {
 /*right*/
 
 .audioplayer .ap-controller-right {
-    width: 360px;
-    padding: 0 20px;
+    padding: 0 1rem;
 }
 
 .audioplayer .ap-controller-right .ap-line {
-    font-size: 24px;
-    padding: 0 8px;
+    font-size: 2rem;
+    padding: 0 .5rem;
     cursor: default;
 }
 
 .audioplayer .ap-controller-right .ap-button {
-    padding: 0 8px;
+    padding: 0 .5rem;
 }
 
 .audioplayer .ap-controller-right .ap-volume-line {
-    width: 86px;
-    margin-right: 8px;
-    height: 28px;
+    width: 6rem;
+    margin-right: .8rem;
+    height: 2rem;
 }
 
 .audioplayer .ap-controller-right .ap-line-draw {
-    height: 24px;
+    height: 2rem;
     width: 1px;
     background: #979797;
 }
@@ -401,7 +389,11 @@ ol {
     position: relative;
     background-color: #455155;
     height: 260px;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+.audioplayer .ap-playlist .ap-playlist-body::-webkit-scrollbar{
+    display: none;
 }
 
 .audioplayer .ap-playlist .ap-playlist-line {
@@ -425,4 +417,18 @@ ol {
     transition: 0.2s;
     cursor: pointer;
     line-height: 21px;
+}
+
+.music{
+    height: 100%;
+    padding-top: .01rem;
+}
+
+.music-photo{
+    width: 60%;
+    height: 0;
+    padding-bottom: 40%;
+    margin: 5rem auto;
+    background: url("../imgs/dl1.jpg") no-repeat center center;
+    background-size: cover;
 }

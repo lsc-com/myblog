@@ -1,25 +1,25 @@
 <template>
-    <div>
+    <div class="music">
         <ul class="home_nav">
-            <router-link to="/">
+            <router-link tag="a" target="_blank" to="/">
                 <li>OPEN</li>
             </router-link>
-            <router-link to="/">
+            <router-link tag="a" target="_blank" to="/">
                 <li>HomePage</li>
             </router-link>
-            <router-link to="/">
+            <router-link tag="a" target="_blank" to="/">
                 <li>Classify</li>
             </router-link>
-            <router-link to="/timer">
+            <router-link tag="a" target="_blank" to="/timer">
                 <li>Timer</li>
             </router-link>
-            <router-link to="/music">
+            <router-link to="#">
                 <li>Music</li>
             </router-link>
-            <router-link to="/">
+            <router-link tag="a" target="_blank" to="/">
                 <li>Message</li>
             </router-link>
-            <router-link to="/">
+            <router-link tag="a" target="_blank" to="/">
                 <li>About</li>
             </router-link>
             <li class="home-input">
@@ -32,6 +32,9 @@
             </li>
         </ul>
         <audio :src="song.url" controls id="audio" v-show="false"></audio>
+        <div class="music-photo">
+            <img src="">
+        </div>
         <div class="audioplayer" id="music-container">
             <div class="ap-status">
                 <!-- 播放列表 -->
@@ -117,10 +120,10 @@
                             <span class="ap-name">{{song.name}}</span>
                             <span class="ap-artist">-{{song.artist}}</span>
                             <span class="ap-time">
-                <span class="ap-current-time">{{currentTime}}</span>
-                <span>/</span>
-                <span class="ap-total-time">{{totalTime}}</span>
-              </span>
+                            <span class="ap-current-time">{{currentTime}}</span>
+                            <span>/</span>
+                            <span class="ap-total-time">{{totalTime}}</span>
+                            </span>
                         </div>
                         <!-- 进度条 -->
                         <div class="ap-progress-line">
@@ -494,9 +497,6 @@
 
                 // 在音频或视频加载发生错误时触发
                 audio.addEventListener("error", () => {
-                    console.log("error");
-                    console.log("-----networkState---------", audio.networkState);
-                    console.log("-----readyState---------", audio.readyState);
                     switch (audio.networkState) {
                         case "0":
                             _this.error = "尚未初始化";
@@ -550,88 +550,14 @@
             slideProgress() {
                 // 由于滑动事件有相同代码，所以进行了简单的封装，具体原理在注释代码中。
                 this.slideFn("progress", this.$refs.thumb, this.$refs.track.offsetWidth);
-                /*let thumb = this.$refs.thumb;
-                              let _this = this;
 
-                              thumb.onmousedown = function (e) {
-                                  // 移动时暂停播放并设置transition: none，解决在滑动结束后出现回弹的bug
-                                  audio.pause();
-                                  _this.thumbSlide = true;
-
-                                  let progressL = _this.$refs.track.offsetWidth;
-                                  let mouseInitX = e.clientX,
-                                      mouseEndX = 0,
-                                      moveX = 0,
-                                      thumbInitX = _this.stringToNum(thumb.style.transform),
-                                      thumbEndX = 0;
-
-                                  document.onmousemove = function (e) {
-                                      mouseEndX = e.clientX;
-                                      moveX = mouseEndX - mouseInitX;
-
-                                      let a = thumbInitX - 0 + moveX;
-                                      if (moveX > 0) {
-                                          thumbEndX = a > progressL ? progressL : a;
-                                      } else {
-                                          thumbEndX = a <= 0 ? 0 : a;
-                                      }
-
-                                      _this.progressScaleX = thumbEndX / progressL;
-                                      _this.thumbTranslateX = thumbEndX;
-                                  };
-
-                                  document.onmouseup = function (e) {
-                                      audio.currentTime = thumbEndX * audio.duration / progressL;
-                                      audio.play();
-                                      _this.thumbSlide = false;
-                                      document.onmousedown = null;
-                                      document.onmousemove = null;
-                                      document.onmouseup = null;
-                                  }
-                              }*/
             },
 
             // 滑动音量
             slideVolume() {
                 // 由于滑动事件有相同代码，所以进行了简单的封装，具体原理在注释代码中。
                 this.slideFn("volume", this.$refs.thumbV, this.$refs.trackV.offsetWidth);
-                /*let thumb = this.$refs.thumbV;
-                              let _this = this;
 
-                              thumb.onmousedown = function (e) {
-                                  // 移动时暂停播放并设置transition: none，解决在滑动结束后出现回弹的bug
-                                  _this.thumbVSlide = true;
-
-                                  let progressL = _this.$refs.trackV.offsetWidth;
-                                  let mouseInitX = e.clientX,
-                                      mouseEndX = 0,
-                                      moveX = 0,
-                                      thumbInitX = _this.stringToNum(thumb.style.transform),
-                                      thumbEndX = 0;
-
-                                  document.onmousemove = function (e) {
-                                      mouseEndX = e.clientX;
-                                      moveX = mouseEndX - mouseInitX;
-
-                                      let a = thumbInitX - 0 + moveX;
-                                      if (moveX > 0) {
-                                          thumbEndX = a > progressL ? progressL : a;
-                                      } else {
-                                          thumbEndX = a <= 0 ? 0 : a;
-                                      }
-
-                                      _this.volume = thumbEndX / progressL;
-                                      _this.volumeX = thumbEndX;
-                                  };
-
-                                  document.onmouseup = function (e) {
-                                      audio.volume = thumbEndX / progressL;
-                                      _this.thumbVSlide = false;
-                                      document.onmousedown = null;
-                                      document.onmousemove = null;
-                                      document.onmouseup = null;
-                                  }
-                              }*/
             },
 
             // 上一首
