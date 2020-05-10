@@ -32,8 +32,33 @@
             </li>
         </ul>
         <audio :src="song.url" controls id="audio" v-show="false"></audio>
-        <div class="music-photo">
-            <img src="">
+        <div class="music-time">
+            <span>
+                {{String(gettime).substring(16,21)}}
+            </span>
+        </div>
+        <div class="demo-music">
+            <ul :id="waves">
+                <li class="li1"></li>
+                <li class="li2"></li>
+                <li class="li3"></li>
+                <li class="li4"></li>
+                <li class="li5"></li>
+                <li class="li6"></li>
+                <li class="li7"></li>
+                <li class="li8"></li>
+                <li class="li5"></li>
+                <li class="li6"></li>
+                <li class="li7"></li>
+                <li class="li8"></li>
+                <li class="li4"></li>
+                <li class="li5"></li>
+                <li class="li6"></li>
+                <li class="li7"></li>
+                <li class="li8"></li>
+                <li class="li5"></li>
+                <li class="li6"></li>
+            </ul>
         </div>
         <div class="audioplayer" id="music-container">
             <div class="ap-status">
@@ -396,7 +421,8 @@
                         url: require("../../public/music/xqdz.mp3")
                     }
                 ],
-                homeInput: ''
+                homeInput: '',
+                gettime: '',
             };
         },
         mounted() {
@@ -404,6 +430,18 @@
             // audio = document.getElementById('audio');
             this.getData();
             this.setPageListen();
+            setInterval(this.getTime, 500)
+        },
+        computed: {
+            waves() {
+                var waves
+                if (this.playing) {
+                    waves = 'waves'
+                } else {
+                    waves = 'waves1'
+                }
+                return waves
+            }
         },
         methods: {
             searchIn() {
@@ -728,7 +766,19 @@
                         : (ss = param - parseInt(mm * 60));
                     return mm + ":" + ss;
                 }
-            }
+            },
+            getTime: function () {
+                var _this = this;
+                let yy = new Date().getFullYear();
+                let mm = new Date().getMonth() + 1;
+                let dd = new Date().getDate();
+                let hh = new Date().getHours();
+                let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
+                let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
+                var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
+                var time = new Date(d)
+                _this.gettime = time
+            },
         }
     };
 </script>
