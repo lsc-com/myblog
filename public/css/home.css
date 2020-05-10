@@ -96,7 +96,7 @@
     float: left;
     height: 48rem;
     width: 100%;
-    background: url(../imgs/bg.jpg) no-repeat center center;
+    background: url(../imgs/bg/bg.jpg) no-repeat center center;
     background-size: cover;
     z-index: -999;
 }
@@ -296,7 +296,7 @@
     float: left;
     height: 7rem;
     margin-bottom: 2rem;
-    width: 100%;
+    width: 94%;
 }
 
 .home-article-footer {

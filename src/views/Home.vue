@@ -42,7 +42,7 @@
             <div class="home-mail">
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-wo-copy"></i>
@@ -50,7 +50,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-weixin"></i>
@@ -58,7 +58,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-qq"></i>
@@ -66,7 +66,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-Git-"></i>
@@ -74,7 +74,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-CSDN"></i>
@@ -82,7 +82,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-youxiang"></i>
@@ -167,25 +167,25 @@
                 <span><i class="iconfont icon-biaoqian"></i></span>
                 <span>New Article</span>
             </div>
-            <div :key="item.id" class="home-article" v-for="item in 1">
+            <div :key="item.id" class="home-article" v-for="item in blog">
                 <div class="home-article-left">
-                    <h2>My first blog</h2>
-                    <span class="home-article-content">This is my first blog</span>
+                    <h2>{{item.title}}</h2>
+                    <span class="home-article-content">{{item.content}}</span>
                     <div class="home-article-footer">
                         <img alt="" src="../../public/imgs/dl.jpg">
-                        <span>OPEN</span>
+                        <span>{{item.author}}</span>
                         <span>
-              <i class="iconfont icon-xuanzeriqi"></i>
-              2020-05-10
-            </span>
+                            <i class="iconfont icon-xuanzeriqi"></i>
+                            {{item.date}}
+                        </span>
                         <span>
-              <i class="iconfont icon-eyes"></i>
-              521
-            </span>
+                            <i class="iconfont icon-eyes"></i>
+                            {{item.watched}}
+                        </span>
                         <span>
-              <i class="iconfont icon-chat51"></i>
-              361
-            </span>
+                            <i class="iconfont icon-chat51"></i>
+                            {{item.messages}}
+                        </span>
                         <div class="home-article-btn">
                             <p>
                                 Made In Lsc
@@ -194,7 +194,7 @@
                     </div>
                 </div>
                 <div class="home-article-right">
-                    <img alt="" src="../../public/imgs/home.jpg">
+                    <img alt="" :src="item.img">
                 </div>
             </div>
         </div>
@@ -206,7 +206,7 @@
         <div class="home-main-footer">
             <div class="home-main-footer-top">
                 <div class="home-main-footer-content">
-                    <img alt="" src="../../public/imgs/code.jpg">
+                    <img alt="" src="../../public/imgs/code/code.jpg">
                 </div>
                 <div class="home-main-footer-content">
                     <h2>New Blog</h2>
@@ -244,7 +244,38 @@
                 homeInput: '',
                 photo: require('../../public/imgs/java.jpg'),
                 pageCount: 1,
-                currentPage: 1
+                currentPage: 1,
+                blog: [
+                    {
+                        title: '开启我的博客之旅',
+                        content: '今天有人找合作写博客网站，嗯！不错，让自己不要闲下来吧，开始！晚上把首页给敲完了',
+                        author: 'LSC',
+                        date: '2020-05-09',
+                        watched: 13,
+                        messages: 14,
+                        img: require('../../public/imgs/home.jpg')
+                    },
+                    {
+                        title: '关于时间轴的一些想法',
+                        content: '要相信每天都很美好，你永远很棒！今天下午搞了一下时间轴，准备记录下开发博客的点点滴滴，但是动画' +
+                            '有点麻烦，费脑子...下次，下次一定，哈哈哈哈哈哈哈...',
+                        author: 'LSC',
+                        date: '2020-05-10',
+                        watched: 52,
+                        messages: 99,
+                        img: require('../../public/imgs/timer.jpg')
+                    },
+                    {
+                        title: 'I am so tired',
+                        content: '今天完善了一下主页，下午搞了一下音乐播放器，确实有点难搞，这一块还是html会更爽那么一点，这个总是会有各种各样' +
+                            '莫名其妙的限制，简直了。但在最后关头终于，啊~',
+                        author: 'LSC',
+                        date: '2020-05-10',
+                        watched: 99,
+                        messages: 128,
+                        img: require('../../public/imgs/music.jpg')
+                    },
+                ]
             }
         },
         methods: {
