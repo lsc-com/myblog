@@ -34,7 +34,7 @@
         <div class="home-header">
             <div class="home-bg"></div>
             <div class="home-logo">
-                <img alt src="../../public/imgs/tx.jpg"/>
+                <img alt src="../../public/imgs/home/tx.jpg"/>
             </div>
             <div class="home-name">
                 <span>OPEN</span>
@@ -172,7 +172,7 @@
                     <h2>{{item.title}}</h2>
                     <span class="home-article-content">{{item.content}}</span>
                     <div class="home-article-footer">
-                        <img alt="" src="../../public/imgs/dl.jpg">
+                        <img alt="" src="../../public/imgs/home/dl.jpg">
                         <span>{{item.author}}</span>
                         <span>
                             <i class="iconfont icon-xuanzeriqi"></i>
@@ -242,7 +242,7 @@
                     home_nav_out: true
                 },
                 homeInput: '',
-                photo: require('../../public/imgs/java.jpg'),
+                photo: require('../../public/imgs/home/java.jpg'),
                 pageCount: 1,
                 currentPage: 1,
                 blog: [
@@ -253,7 +253,18 @@
                         date: '2020-05-09',
                         watched: 13,
                         messages: 14,
-                        img: require('../../public/imgs/home.jpg')
+                        img: require('../../public/imgs/home/home.jpg')
+                    },
+                    {
+                        title: '我想说：”母亲，您辛苦了“',
+                        content: '今天是母亲节，不记得从什么时候开始才重视给妈妈过这个节日，其实我知道，您这么多年，真的很不容易' +
+                            '但我还是会有惹你生气的时候，现在想想真是不应该。不知道什么时候，您的头上，透出了几缕银丝，是啊，我们长大了，' +
+                            '可是代价呢，您变老了，我真的很不想很不想长大，我想一直当你的小宝贝，这么多年，您辛苦了。妈妈，我爱您！',
+                        author: 'LSC',
+                        date: '2020-05-10',
+                        watched: 99,
+                        messages: 99,
+                        img: require('../../public/imgs/home/mother.jpg')
                     },
                     {
                         title: '关于时间轴的一些想法',
@@ -263,7 +274,7 @@
                         date: '2020-05-10',
                         watched: 52,
                         messages: 99,
-                        img: require('../../public/imgs/timer.jpg')
+                        img: require('../../public/imgs/home/timer.jpg')
                     },
                     {
                         title: 'I am so tired',
@@ -273,7 +284,7 @@
                         date: '2020-05-10',
                         watched: 99,
                         messages: 128,
-                        img: require('../../public/imgs/music.jpg')
+                        img: require('../../public/imgs/home/music.jpg')
                     },
                 ]
             }
