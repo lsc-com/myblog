@@ -363,7 +363,7 @@
                         name: "盗墓笔记·十年人间",
                         time: "04:31",
                         artist: "老乾妈",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/daomu.mp3")
                     },
                     {
@@ -371,7 +371,7 @@
                         name: "有点甜",
                         time: "04:31",
                         artist: "汪苏泷",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/sweet.mp3")
                     },
                     {
@@ -379,7 +379,7 @@
                         name: "新春乐",
                         time: "04:22",
                         artist: "吕思清",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/spring.mp3")
                     },
                     {
@@ -387,7 +387,7 @@
                         name: "同福客栈",
                         time: "04:31",
                         artist: "武林外传",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/tfkz.mp3")
                     },
                     {
@@ -395,7 +395,7 @@
                         name: "加沃特舞曲",
                         time: "04:31",
                         artist: "中国爱乐乐团",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/jwt.mp3")
                     },
                     {
@@ -403,7 +403,7 @@
                         name: "熬夜上瘾",
                         time: "04:31",
                         artist: "可乐",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/aysy.mp3")
                     },
                     {
@@ -411,7 +411,7 @@
                         name: "遇见",
                         time: "04:31",
                         artist: "孙燕姿",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/yj.mp3")
                     },
                     {
@@ -419,7 +419,7 @@
                         name: "星球大战",
                         time: "04:31",
                         artist: "中国爱乐乐团",
-                        cover: require("../../public/imgs/tx.jpg"),
+                        cover: require("../../public/imgs/home/tx.jpg"),
                         url: require("../../public/music/xqdz.mp3")
                     }
                 ],
