@@ -192,7 +192,7 @@ html {
 body {
     height: 100%;
     text-align: center;
-    background: url(../imgs/backimg.jpg) no-repeat center center;
+    background: url(../imgs/bg/backimg.jpg) no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     -webkit-text-size-adjust: none;

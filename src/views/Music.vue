@@ -36,6 +36,7 @@
             <span>
                 {{String(gettime).substring(16,21)}}
             </span>
+            <p>Today is another beautiful day</p>
         </div>
         <div class="demo-music">
             <ul :id="waves">

@@ -522,3 +522,7 @@ ol {
     font-size: 10rem;
     color: #fff;
 }
+
+.music-time p {
+    font-size: 2rem;
+}
