@@ -32,10 +32,6 @@
             </li>
         </ul>
         <div class="timer-content">
-
-            <!-- <div class="timer-left"></div>
-            <div></div>
-            <div class="timer-right"></div> -->
             <div class='time-line'>
                 <div :key="item.id" class='time-line-div' v-for='item in testList'>
                     <p v-show="item.id%2">
@@ -53,7 +49,7 @@
             <div class="home-main-footer">
                 <div class="home-main-footer-top">
                     <div class="home-main-footer-content">
-                        <img alt="" src="../../public/imgs/code.jpg">
+                        <img alt="" src="../../public/imgs/code/code.jpg">
                     </div>
                     <div class="home-main-footer-content">
                         <h2>New Blog</h2>
