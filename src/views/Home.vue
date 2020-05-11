@@ -7,7 +7,7 @@
             <router-link to="/">
                 <li>HomePage</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/classify">
                 <li>Classify</li>
             </router-link>
             <router-link to="/timer">
@@ -16,10 +16,10 @@
             <router-link to="/music">
                 <li>Music</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/message">
                 <li>Message</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/about">
                 <li>About</li>
             </router-link>
             <li class="home-input">
@@ -31,18 +31,18 @@
                 ></el-input>
             </li>
         </ul>
-        <div class="home-header">
-            <div class="home-bg"></div>
+        <div class="home-header" :style="contentStyleObj">
+            <div class="home-bg" :style="contentStyleObj"></div>
             <div class="home-logo">
                 <img alt src="../../public/imgs/home/tx.jpg"/>
             </div>
             <div class="home-name">
-                <span>OPEN</span>
+                <span>L S C</span>
             </div>
             <div class="home-mail">
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/wcode.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-wo-copy"></i>
@@ -50,7 +50,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/wcode.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-weixin"></i>
@@ -58,7 +58,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/wcode.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-qq"></i>
@@ -66,7 +66,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/wcode.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-Git-"></i>
@@ -74,7 +74,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/wcode.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-CSDN"></i>
@@ -82,7 +82,7 @@
                 </el-tooltip>
                 <el-tooltip placement="bottom">
                     <div slot="content">
-                        <img class="rqcode" src="../../public/imgs/code/code.jpg"/>
+                        <img class="rqcode" src="../../public/imgs/code/wcode.jpg"/>
                     </div>
                     <span>
                         <i class="iconfont icon-youxiang"></i>
@@ -106,22 +106,22 @@
             </div>
             <div class="home-footer">
                 <router-link to="/">
-                    <el-button round>HomePage</el-button>
+                    <div class="jump">HomePage</div>
                 </router-link>
-                <router-link to="/">
-                    <el-button round>Classify</el-button>
+                <router-link to="/classify">
+                    <div class="jump">Classify</div>
                 </router-link>
                 <router-link to="/timer">
-                    <el-button round>Timer</el-button>
+                    <div class="jump">Timer</div>
                 </router-link>
                 <router-link to="/music">
-                    <el-button round>Music</el-button>
+                    <div class="jump">Music</div>
                 </router-link>
-                <router-link to="/">
-                    <el-button round>Message</el-button>
+                <router-link to="/message">
+                    <div class="jump">Message</div>
                 </router-link>
-                <router-link to="/">
-                    <el-button round>About</el-button>
+                <router-link to="/about">
+                    <div class="jump">About</div>
                 </router-link>
             </div>
         </div>
@@ -132,31 +132,12 @@
                 <span>New Page</span>
             </div>
             <div class="home-lable-photo-band">
-                <div class="home-lable-photo-box">
+                <div class="home-lable-photo-box" v-for="lable in homeLable" :key="lable.id">
                     <div class="home-lable-photo">
+<!--                        图片一定要 宽高比 10 : 7-->
+                        <img :src="lable.img" alt="">
                         <div class="home-lable-photo-title">
-                            <span>Java学习路线</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="home-lable-photo-box">
-                    <div class="home-lable-photo">
-                        <div class="home-lable-photo-title">
-                            <span>Java学习路线</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="home-lable-photo-box">
-                    <div class="home-lable-photo">
-                        <div class="home-lable-photo-title">
-                            <span>Java学习路线</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="home-lable-photo-box">
-                    <div class="home-lable-photo">
-                        <div class="home-lable-photo-title">
-                            <span>Java学习路线</span>
+                            <span>{{lable.title}}</span>
                         </div>
                     </div>
                 </div>
@@ -194,7 +175,7 @@
                     </div>
                 </div>
                 <div class="home-article-right">
-                    <img alt="" :src="item.img">
+                    <img :src="item.img" alt="">
                 </div>
             </div>
         </div>
@@ -206,7 +187,7 @@
         <div class="home-main-footer">
             <div class="home-main-footer-top">
                 <div class="home-main-footer-content">
-                    <img alt="" src="../../public/imgs/code/code.jpg">
+                    <img alt="" src="../../public/imgs/code/wcode.jpg">
                 </div>
                 <div class="home-main-footer-content">
                     <h2>New Blog</h2>
@@ -218,7 +199,7 @@
                 </div>
                 <div class="home-main-footer-content-last">
                     <h2>Today is</h2>
-                    <span>2020-05-10</span>
+                    <span>{{nowTime}}</span>
                 </div>
             </div>
             <div style="width:100%;height:.05rem;background:#ffffff;margin:0 auto 2rem auto;float:left"></div>
@@ -232,64 +213,37 @@
 
 
 <script>
-
+import axios from 'axios';
     export default {
         name: 'Home',
         data() {
             return {
+                contentStyleObj:{
+                    height:''  // 当前浏览器高度
+                },
                 ulObj: {
                     home_nav: false,
                     home_nav_out: true
                 },
                 homeInput: '',
-                photo: require('../../public/imgs/home/java.jpg'),
                 pageCount: 1,
                 currentPage: 1,
-                blog: [
-                    {
-                        title: '开启我的博客之旅',
-                        content: '今天有人找合作写博客网站，嗯！不错，让自己不要闲下来吧，开始！晚上把首页给敲完了',
-                        author: 'LSC',
-                        date: '2020-05-09',
-                        watched: 13,
-                        messages: 14,
-                        img: require('../../public/imgs/home/home.jpg')
-                    },
-                    {
-                        title: '我想说：”母亲，您辛苦了“',
-                        content: '今天是母亲节，不记得从什么时候开始才重视给妈妈过这个节日，其实我知道，您这么多年，真的很不容易' +
-                            '但我还是会有惹你生气的时候，现在想想真是不应该。不知道什么时候，您的头上，透出了几缕银丝，是啊，我们长大了，' +
-                            '可是代价呢，您变老了，我真的很不想很不想长大，我想一直当你的小宝贝，这么多年，您辛苦了。妈妈，我爱您！',
-                        author: 'LSC',
-                        date: '2020-05-10',
-                        watched: 99,
-                        messages: 99,
-                        img: require('../../public/imgs/home/mother.jpg')
-                    },
-                    {
-                        title: '关于时间轴的一些想法',
-                        content: '要相信每天都很美好，你永远很棒！今天下午搞了一下时间轴，准备记录下开发博客的点点滴滴，但是动画' +
-                            '有点麻烦，费脑子...下次，下次一定，哈哈哈哈哈哈哈...',
-                        author: 'LSC',
-                        date: '2020-05-10',
-                        watched: 52,
-                        messages: 99,
-                        img: require('../../public/imgs/home/timer.jpg')
-                    },
-                    {
-                        title: 'I am so tired',
-                        content: '今天完善了一下主页，下午搞了一下音乐播放器，确实有点难搞，这一块还是html会更爽那么一点，这个总是会有各种各样' +
-                            '莫名其妙的限制，简直了。但在最后关头终于，啊~',
-                        author: 'LSC',
-                        date: '2020-05-10',
-                        watched: 99,
-                        messages: 128,
-                        img: require('../../public/imgs/home/music.jpg')
-                    },
-                ]
+                blog: [],
+                homeLable: [],
+                nowTime: ''
             }
         },
         methods: {
+            getData() {
+                axios.get('/js/home.json').then((res) => {
+                    console.log(res)
+                    this.blog = res.data.blog
+                    this.homeLable = res.data.homeLable
+                })
+            },
+            getHeight(){
+                this.contentStyleObj.height=window.innerHeight+'px';
+            },
             handleScroll() {
                 var scroll =
                     window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
@@ -309,11 +263,34 @@
             searchIn() {
                 alert(this.homeInput)
                 this.homeInput = ''
-            }
+            },
+            getTime () {
+                var _this = this;
+                let yy = new Date().getFullYear();
+                let mm = new Date().getMonth() + 1;
+                let dd = new Date().getDate();
+                let hh = new Date().getHours();
+                let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
+                let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
+                var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
+                var time = new Date(d)
+                _this.nowTime =String(time).substring(0,15) // 转换成日期字符串
+            },
         },
         // 监听页面滚动
         mounted() {
+            this.getData();
+            this.getTime();
             window.addEventListener('scroll', this.handleScroll);
+        },
+
+        created(){
+            window.addEventListener('resize', this.getHeight);
+            this.getHeight()
+        },
+
+        destroyed(){
+            window.removeEventListener('resize', this.getHeight)
         }
 
     }
@@ -322,9 +299,8 @@
 <style scoped>
     @import "../../public/css/home.css";
 
-    .el-button {
-        background: #ffffff6b;
-        border: 1px solid #ffffff6b;
-        color: #38362e;
+    .icon-youxiang, .icon-CSDN, .icon-Git-, .icon-weixin, .icon-qq, .icon-wo-copy {
+        color: #ddd;
     }
+
 </style>

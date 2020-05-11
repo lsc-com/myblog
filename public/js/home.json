@@ -1,0 +1,80 @@
+{
+    "blog": [
+      {
+        "title": "开启我的博客之旅",
+        "content": "今天有人找合作写博客网站，嗯！不错，让自己不要闲下来吧，开始！晚上把首页给敲完了",
+        "author": "LSC",
+        "date": "2020-05-09",
+        "watched": 13,
+        "messages": 14,
+        "img": "../imgs/blog/home.jpg"
+      },
+      {
+        "title": "我想说：”母亲，您辛苦了“",
+        "content": "今天是母亲节，不记得从什么时候开始才重视给妈妈过这个节日，其实我知道，您这么多年，真的很不容易但我还是会有惹你生气的时候，现在想想真是不应该。不知道什么时候，您的头上，透出了几缕银丝，是啊，我们长大了，可是代价呢，您变老了，我真的很不想很不想长大，我想一直当你的小宝贝，这么多年，您辛苦了。妈妈，我爱您！",
+        "author": "LSC",
+        "date": "2020-05-10",
+        "watched": 99,
+        "messages": 99,
+        "img": "../imgs/blog/mother.jpg"
+      },
+      {
+        "title": "关于时间轴的一些想法",
+        "content": "要相信每天都很美好，你永远很棒！今天下午搞了一下时间轴，准备记录下开发博客的点点滴滴，但是动画有点麻烦，费脑子...下次，下次一定，哈哈哈哈哈哈哈...",
+        "author": "LSC",
+        "date": "2020-05-10",
+        "watched": 52,
+        "messages": 99,
+        "img": "../imgs/blog/timer.jpg"
+      },
+      {
+        "title": "I am so tired",
+        "content": "今天完善了一下主页，下午搞了一下音乐播放器，确实有点难搞，这一块还是html会更爽那么一点，这个总是会有各种各样莫名其妙的限制，简直了。但在最后关头终于，啊~",
+        "author": "LSC",
+        "date": "2020-05-10",
+        "watched": 99,
+        "messages": 128,
+        "img": "../imgs/blog/music.jpg"
+      },
+      {
+        "title": "开启新的一天",
+        "content": "美好的一天从美妙的音乐开始，今天开始我也是有私人音乐播放器的人啦。哈哈哈哈哈哈哈...",
+        "author": "LSC",
+        "date": "2020-05-11",
+        "watched": 114,
+        "messages": 64,
+        "img": "../imgs/blog/0511.png"
+      },
+      {
+        "title": "完美的一天",
+        "content": "完美的一天从早晨开启，今天顺利将博客网站敲掉了，完善了一些页面的小小bug，emmmm只剩下详情页面了。啊！好累呀，先休息会儿吧",
+        "author": "LSC",
+        "date": "2020-05-11",
+        "watched": 186,
+        "messages": 64,
+        "img": "../imgs/blog/0511.png"
+      }
+    ],
+  "name": "LSC",
+  "title": "Welcome to my blog! A website worth watching!",
+  "content": "This is my blog" ,
+  "homeLable":[
+    {
+      "img": "../imgs/home/lable/java.jpg",
+      "title": "Java学习路线"
+    },
+    {
+      "img": "../imgs/home/lable/spring.jpg",
+      "title": "Spring重点心得"
+    },
+    {
+      "img": "../imgs/home/lable/springboot.jpg",
+      "title": "SpringBoot进阶学习"
+    },
+    {
+      "img": "../imgs/home/lable/vue.jpg",
+      "title": "Vue从入门到精通"
+    }
+  ]
+
+}

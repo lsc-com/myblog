@@ -7,19 +7,19 @@
             <router-link tag="a" target="_blank" to="/">
                 <li>HomePage</li>
             </router-link>
-            <router-link tag="a" target="_blank" to="/">
+            <router-link tag="a" target="_blank" to="/classify">
                 <li>Classify</li>
             </router-link>
             <router-link tag="a" target="_blank" to="/timer">
                 <li>Timer</li>
             </router-link>
-            <router-link to="#">
+            <router-link to="/music">
                 <li>Music</li>
             </router-link>
-            <router-link tag="a" target="_blank" to="/">
+            <router-link tag="a" target="_blank" to="/message">
                 <li>Message</li>
             </router-link>
-            <router-link tag="a" target="_blank" to="/">
+            <router-link tag="a" target="_blank" to="/about">
                 <li>About</li>
             </router-link>
             <li class="home-input">
@@ -308,7 +308,6 @@
                                             d="M17.371 24.686c1.371 0 2.4-1.143 2.4-2.4s-1.143-2.4-2.4-2.4-2.514 1.029-2.514 2.4 1.143 2.4 2.514 2.4zM17.371 26.286c-2.286 0-4.114-1.829-4.114-4s1.829-4 4.114-4 4.114 1.829 4.114 4-1.829 4-4.114 4z"
                                     />
                                 </svg>
-                                <span class="ap-playlist-button-amount">{{songList.length}}</span>
                             </div>
                         </div>
                     </div>
@@ -661,6 +660,7 @@
                 setTimeout(() => {
                     audio.play();
                 }, 100);
+                this.listShow = false
             },
 
             //上下首封装
@@ -785,6 +785,6 @@
     };
 </script>
 
-<style>
+<style scoped>
     @import "../../public/css/music.css";
 </style>

@@ -45,7 +45,7 @@ video {
     width: 100%;
     height: 3.8rem;
     white-space: nowrap;
-    background-color: #384245;
+    background-color: #1d1d1d99;
     color: #737A7C;
     font-size: 14px;
     -webkit-user-select: none;
@@ -65,7 +65,6 @@ video {
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: #384245;
     position: relative;
 }
 
@@ -294,7 +293,6 @@ svg:not(:root) {
 }
 
 .audioplayer .ap-controller-right .ap-playlist-button-bg {
-    background: #4A5355;
     height: 28px;
     border-radius: 14px;
     padding: 0 8px 0 6px;
@@ -363,6 +361,7 @@ ol {
 }
 
 .audioplayer .ap-playlist.ap-playlist-hide {
+    bottom: 0;
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
 }
@@ -388,7 +387,7 @@ ol {
 .audioplayer .ap-playlist .ap-playlist-body {
     position: relative;
     background-color: #455155;
-    height: 260px;
+    height: 31rem;
     overflow: scroll;
 }
 
@@ -436,7 +435,12 @@ ol {
     position: absolute;
     top: 70%;
     left: 50%;
+    opacity: .6;
     transform: translate(-50%, -50%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .demo-music #waves {
@@ -521,6 +525,10 @@ ol {
     padding-top: 5rem;
     font-size: 10rem;
     color: #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .music-time>p:nth-child(2){

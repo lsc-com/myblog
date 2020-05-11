@@ -1,4 +1,9 @@
 // vue.config.js
 module.exports = {
-    lintOnSave: false
+    lintOnSave: false,
+    devServer: {
+        host: 'localhost',
+        open: true,
+    },
+    publicPath: './',
 }

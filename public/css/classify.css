@@ -1,0 +1,219 @@
+.classify-header{
+    width: 100%;
+    height: 15rem;
+    background: #000000ba;
+}
+
+.classify-header span{
+    display: block;
+    color: #fff;
+    padding-top: 5rem;
+    opacity: 1;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.classify-header img{
+    position: absolute;
+    display: block;
+    opacity: .5;
+    height: 15rem;
+    width: 100%;
+}
+
+.classify-main{
+    position: absolute;
+    width: 100%;
+    min-height: 10rem;
+    top: 11rem;
+}
+
+.classify-main-top{
+    opacity: .8;
+    position: relative;
+    box-sizing: border-box;
+    width: 70%;
+    height: auto !important;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: .5rem;
+}
+
+.classify-main-tag{
+    height: auto !important;
+    min-height: 5rem;
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.classify-main-tag li{
+    position: relative;
+    float: left;
+    height: 2rem;
+    line-height: 2rem;
+    margin: .6rem .3rem;
+    padding: 0 1rem;
+    border: 1px solid #c7c7c7;
+    border-radius: .2rem;
+    transition: .2s;
+}
+.classify-main-tag li span:nth-child(1){
+    display: block;
+    float: left;
+}
+
+.classify-main-tag li>p:nth-child(2) {
+    position: absolute;
+    left: calc(100% - 3.31rem);
+    width: .5rem;
+    height: .5rem;
+    top: .75rem;
+    transform: rotate(45deg);
+    background: #ffffff;
+    opacity: 1;
+    border-left: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    border-radius: .01rem;
+    z-index: 10
+}
+.classify-main-tag li span:nth-child(3){
+    display: block;
+    float: left;
+    height: 100%;
+    width: 3rem;
+    margin:  0 -1rem 0 1rem;
+    background: #ffffff;
+    border-left: 1px solid #c7c7c7;
+}
+.classify-main-tag li:hover{
+    border-color: #00b5ad;
+}
+
+.tag-active{
+    color: #00b5ad;
+    border-color: #00b5ad!important;
+}
+
+.classify-main-content{
+    width: 70%;
+    min-height: auto;
+    margin: 1rem auto;
+    background: #ffffffc9;
+    border-radius: .5rem;
+    border-top: .3rem solid #00b5ad;
+}
+
+.classify-main-content ul{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 1rem 1rem 0 1rem;
+    box-sizing: border-box;
+}
+
+
+.classify-main-lable{
+    width: 100%;
+    height: 16rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.classify-main-lable-left{
+    float: left;
+    width: 70%;
+    height: 100%;
+    text-align: left;
+}
+
+
+.classify-main-lable-left h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.classify-main-lable-left>span {
+    display: block;
+    float: left;
+    height: 50%;
+    width: 94%;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.classify-main-lable-footer {
+    float: left;
+    height: 2rem;
+    width: 100%;
+}
+
+.classify-main-lable-footer img {
+    display: block;
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.classify-main-lable-footer span {
+    display: block;
+    float: left;
+    height: 100%;
+    min-width: 1rem;
+    padding: .24rem .5rem;
+    color: #4183C4;
+    font-weight: 300;
+}
+
+.classify-main-lable-btn {
+    float: right;
+    width: 6rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin-right: 1rem;
+    text-align: center;
+    color: #53a8ff;
+    font-size: .8rem;
+    background-color: #00000000;
+    border: 1px solid #79bbff;
+    border-radius: .4rem;
+}
+
+
+.classify-main-lable-right{
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+
+.classify-main-lable-right img {
+    display: block;
+    width: 100%;
+    height: 92%;
+    border-radius: .5rem;
+}
+
+.classify-lable-page{
+    display: inline-block;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    color: #606266;
+    box-sizing: border-box;
+}
+
+.classify-page-pre {
+    float: left;
+    color: #409EFF;
+}
+
+.classify-page-next {
+    float: right;
+    color: #409EFF;
+}

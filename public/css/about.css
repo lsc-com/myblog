@@ -1,0 +1,100 @@
+.about-header{
+
+}
+
+.about-header{
+    width: 100%;
+    height: 15rem;
+    background: #000000ba;
+}
+
+.about-header span{
+    display: block;
+    color: #fff;
+    padding-top: 5rem;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.about-header img{
+    position: absolute;
+    display: block;
+    opacity: .5;
+    height: 15rem;
+    width: 100%;
+}
+
+.about-main{
+    position: relative;
+    width: 100%;
+    min-height: 10rem;
+    margin-top: -5rem;
+}
+
+.about-main-content{
+    width: 70%;
+    min-height: 30rem;
+    margin: 1rem auto;
+    padding: 2rem;
+    background: #ffffffe3;
+    color: #4c4c4c;
+    border-radius: .5rem;
+    border-top: .3rem solid #00b5ad;
+    box-shadow: .1rem .05rem .6rem #7bf5ef
+}
+.about-main-content>img{
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.about-content-title{
+    display: block;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}
+
+.about-mail{
+    height: 2rem;
+    margin: 1rem auto;
+}
+
+.about-mail .iconfont{
+    font-size: 2rem !important;
+    margin: 0 .5rem;
+}
+
+.about-me{
+    width: 80%;
+    min-height: 5rem;
+    margin: 1rem auto;
+
+}
+
+.about-like{
+    width: 80%;
+    margin: 1rem auto;
+    color: #ffa500;
+}
+
+.about-like h2{
+    font-size: 2rem;
+    font-family: 宋体;
+}
+
+.about-like>span{
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    max-width: 80%;
+    margin: 1rem auto;
+    border-radius: .2rem;
+    border: 1px solid #ffa500;
+}
+.about-like img{
+    height: 8rem;
+    width: 8rem;
+    margin: 2rem;
+}

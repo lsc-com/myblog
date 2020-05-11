@@ -16,7 +16,11 @@
     width: 100%;
     height: 3rem;
     background: #000000b0;
-    z-index: 999;
+    z-index: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 @keyframes go_in {
@@ -94,16 +98,14 @@
 .home-bg {
     position: absolute;
     float: left;
-    height: 48rem;
     width: 100%;
-    background: url(../imgs/bg/bg.jpg) no-repeat center center;
+    background: url(../imgs/bg/bg3.jpg) no-repeat center center;
     background-size: cover;
     z-index: -999;
 }
 
 .home-header {
     float: left;
-    height: 48rem;
     width: 100%;
     background: #00000082;
 }
@@ -204,8 +206,20 @@
     margin: 1rem;
 }
 
-.home-footer a button {
-    width: 8rem;
+.jump {
+    background: #ffffff6b;
+    border: 1px solid #ffffff6b;
+    font-size: 1rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    color: #38362e;
+    transition: .5s;
+    border-radius: 1.2rem;
+}
+.jump:hover{
+    background: #ffffff3b;
+    border: 1px solid #ffffff3b;
+    color: #b9b9b9;
 }
 
 .home-lable {
@@ -247,8 +261,14 @@
     height: 0;
     padding-bottom: 70%;
     border-radius: .5rem;
-    background: url(../imgs/home/java.jpg) no-repeat center center;
+    background: no-repeat center center;
     background-size: cover;
+}
+
+.home-lable-photo img {
+    position: relative;
+    width: 100%;
+    border-radius: .5rem;
 }
 
 .home-lable-photo-title {

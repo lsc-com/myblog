@@ -7,7 +7,7 @@
             <router-link to="/">
                 <li>HomePage</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/classify">
                 <li>Classify</li>
             </router-link>
             <router-link to="/timer">
@@ -16,10 +16,10 @@
             <router-link to="/music">
                 <li>Music</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/message">
                 <li>Message</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/about">
                 <li>About</li>
             </router-link>
             <li class="home-input">
@@ -49,7 +49,7 @@
             <div class="home-main-footer">
                 <div class="home-main-footer-top">
                     <div class="home-main-footer-content">
-                        <img alt="" src="../../public/imgs/code/code.jpg">
+                        <img alt="" src="../../public/imgs/code/wcode.jpg">
                     </div>
                     <div class="home-main-footer-content">
                         <h2>New Blog</h2>
