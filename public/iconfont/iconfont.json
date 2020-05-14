@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "14554150",
+      "name": "c-icon-音乐列表@1x",
+      "font_class": "c-icon-yinleliebiao1x",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
       "icon_id": "8939961",
       "name": "眼睛",
       "font_class": "eyes",

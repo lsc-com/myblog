@@ -7,7 +7,8 @@
         "date": "2020-05-09",
         "watched": 13,
         "messages": 14,
-        "img": "../imgs/blog/home.jpg"
+        "img": "../imgs/blog/home.jpg",
+        "code": "原创"
       },
       {
         "title": "我想说：”母亲，您辛苦了“",
@@ -16,7 +17,8 @@
         "date": "2020-05-10",
         "watched": 99,
         "messages": 99,
-        "img": "../imgs/blog/mother.jpg"
+        "img": "../imgs/blog/mother.jpg",
+        "code": "原创"
       },
       {
         "title": "关于时间轴的一些想法",
@@ -25,7 +27,8 @@
         "date": "2020-05-10",
         "watched": 52,
         "messages": 99,
-        "img": "../imgs/blog/timer.jpg"
+        "img": "../imgs/blog/timer.jpg",
+        "code": "原创"
       },
       {
         "title": "I am so tired",
@@ -34,7 +37,8 @@
         "date": "2020-05-10",
         "watched": 99,
         "messages": 128,
-        "img": "../imgs/blog/music.jpg"
+        "img": "../imgs/blog/music.jpg",
+        "code": "原创"
       },
       {
         "title": "开启新的一天",
@@ -43,7 +47,8 @@
         "date": "2020-05-11",
         "watched": 114,
         "messages": 64,
-        "img": "../imgs/blog/0511.png"
+        "img": "../imgs/blog/0511.png",
+        "code": "原创"
       },
       {
         "title": "完美的一天",
@@ -52,7 +57,28 @@
         "date": "2020-05-11",
         "watched": 186,
         "messages": 64,
-        "img": "../imgs/blog/0511.png"
+        "img": "../imgs/blog/0511.png",
+        "code": "原创"
+      },
+      {
+        "title": "奥力给",
+        "content": "手机呀手机，你怎么就不能自己来适应我写的代码呢，还要做一套手机端的页面，真的累呀",
+        "author": "LSC",
+        "date": "2020-05-12",
+        "watched": 186,
+        "messages": 64,
+        "img": "../imgs/blog/mobile.jpg",
+        "code": "原创"
+      },
+      {
+        "title": "终于结束了",
+        "content": "我已经一整天没有更新了，就为了做手机端，有点累，不想写了。然后就是，这个电视也太爽了吧！以后博客加个具体时间，免得凌晨到晚上就是同一天",
+        "author": "LSC",
+        "date": "2020-05-13 22:51",
+        "watched": 186,
+        "messages": 64,
+        "img": "../imgs/blog/s.jpg",
+        "code": "原创"
       }
     ],
   "name": "LSC",

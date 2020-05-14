@@ -45,16 +45,11 @@
     min-height: 8rem !important;
 }
 .message-username{
-    width: 50%;
+    width: 50% !important;
     margin: 1rem;
     height: 2.3rem;
     background-color: #ffffffe3;
     border-radius: .5rem;
-}
-
-.message-username-btn{
-    width: 10%;
-    height: 2.3rem;
 }
 
 .message-main-content{
@@ -90,10 +85,13 @@
 }
 
 .message-content-right{
+    position: relative;
+    z-index: 2;
     float: left;
     width: 95%;
     min-height: 3rem;
     padding-left: 1rem;
+    padding-bottom: 1rem;
     box-sizing: border-box;
 }
 
@@ -114,19 +112,20 @@
 }
 
 .message-content-right span:nth-child(1):hover{
-    color: #00b5ad;
+    color: #409eff;
 }
 
 .message-content-right span:nth-child(2){
     height: 1.5rem;
     line-height: 1.8rem;
     font-size: .8rem;
+    color: #909399;
 }
 
 .message-content-details{
     width: 100%;
     min-height: 1.5rem;
-    margin: .5rem .3rem;
+    margin: 2rem .3rem .3rem .3rem;
     font-size: 1rem;
     text-align: left;
 }
@@ -135,4 +134,49 @@
     height: 1rem;
     margin-left: .3rem ;
     font-size: .8rem;
+    color: #909399;
+    cursor: pointer;
+}
+.message-content-answer-bind{
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    min-height: 3rem;
+    margin-left: 2.5%;
+    padding: .15rem 0 1rem 2rem;
+    border-left: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.message-content-answer-bind span{
+    display: block;
+    float: left;
+}
+
+.message-content-answer-bind span:nth-child(2){
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0 .5rem;
+    color: #303133;
+    font-size: 1.2rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.message-content-answer-bind span:nth-child(2):hover{
+    color: #409eff;
+}
+
+.message-content-answer-bind span:nth-child(3){
+    height: 1.5rem;
+    line-height: 1.8rem;
+    font-size: .8rem;
+    color: #909399;
+}
+pre{
+    white-space:pre-wrap;
+    white-space:-moz-pre-wrap;
+    white-space:pre-wrap;
+    white-space:-o-pre-wrap;
+    word-wrap:break-word;
 }

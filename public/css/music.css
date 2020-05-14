@@ -443,12 +443,52 @@ ol {
     user-select: none;
 }
 
-.demo-music #waves {
+.demo-music #waves1 {
+    flex-direction: row;
+    justify-content: center;
+    animation: go_out 2s;
     height: 15rem;
     position: relative;
     display: flex;
     transform: rotate(180deg);
 }
+
+
+.demo-music #waves {
+    flex-direction: row;
+    justify-content: center;
+    animation: go_in 1s;
+    opacity: 1;
+    visibility: visible;
+    height: 15rem;
+    position: relative;
+    display: flex;
+    transform: rotate(180deg);
+}
+
+
+
+@keyframes go_in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes go_out {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 
 .demo-music #waves li {
     list-style: none;
@@ -462,7 +502,7 @@ ol {
 
 #waves1 li{
     animation: waves 0.8s linear 0s 1  !important;
-    display: none;
+    /*display: none;*/
 }
 
 .demo-music #waves .li1 {

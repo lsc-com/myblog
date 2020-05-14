@@ -26,9 +26,13 @@
 </script>
 
 <style scoped>
-    @import '../public/css/home.css';
     #app {
         min-height: 100%;
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
     }
 
     /* 为对应的路由跳转时设置动画效果 */

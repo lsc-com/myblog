@@ -185,7 +185,6 @@ sub {
 html {
     overflow-x: hidden;
     height: 100%;
-    font-size: 26.666666666666vm;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -200,4 +199,57 @@ body {
 
 a {
     text-decoration: none;
+}
+
+@media only screen and  (max-width: 768px){
+
+    html{
+        font-size: 26.66666667vw !important;
+        overflow-x: hidden;
+    }
+    .el-input__inner{
+        height: .4rem !important;
+        line-height: .4rem !important;
+        border: none !important;
+    }
+    input::-ms-input-placeholder{
+        text-align: center;
+    }
+    input::-webkit-input-placeholder{
+        text-align: center;
+    }
+
+    .el-message{
+        height: .5rem !important;
+        line-height: .5rem!important;
+        min-width: 50% !important;
+    }
+    .el-message__icon::before{
+        content: none;
+    }
+    .el-slider__button {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #409EFF;
+        background-color: #FFF;
+        border-radius: 50%;
+        transition: .2s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        top: .08rem;
+        left: .1rem;
+    }
+}
+@media only screen and (min-width: 769px){
+    html{
+        height: 100%;
+    }
+
+    .el-textarea__inner{
+        min-height: 130px !important;
+    }
+
 }

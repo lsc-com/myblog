@@ -6,6 +6,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '../public/css/reset.css'
 import '../public/iconfont/iconfont.css'
 import '../public/iconfont/iconfont.js'
+// 以下三个是点击图片变大
+import VueDirectiveImagePreviewer from 'vue-directive-image-previewer'
+import 'vue-directive-image-previewer/dist/assets/style.css'
+Vue.use(VueDirectiveImagePreviewer)
 
 Vue.use(ElementUI)
 

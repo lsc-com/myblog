@@ -1,9 +1,26 @@
 {
   "message": [
     {
+      "mid": 1,
       "name": "LSC",
       "date": "2020-05-11",
-      "content": "这是第一条留言"
+      "content": "这是第一条留言",
+      "sub": [
+        {
+          "mid": 1,
+          "name": "我自己",
+          "answername": "@LSC",
+          "date": "2020-05-11",
+          "content": "这是第一条回复"
+        },
+        {
+          "mid": 1,
+          "name": "还是我自己",
+          "answername": "@我自己",
+          "date": "2020-05-11",
+          "content": "这是第一条回复中的回复"
+        }
+      ]
     }
   ]
 }

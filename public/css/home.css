@@ -16,7 +16,7 @@
     width: 100%;
     height: 3rem;
     background: #000000b0;
-    z-index: 1;
+    z-index: 3;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -38,7 +38,7 @@
     justify-content: center;
     animation: go_out 1s;
     visibility: hidden;
-    z-index: 0;
+    z-index: -1;
     position: fixed;
     top: 0;
     width: 100%;
@@ -104,6 +104,15 @@
     z-index: -999;
 }
 
+
+
+@media screen and (max-height:700px) {
+    .home-header, .home-bg{
+        height: 800px !important;
+    }
+}
+
+
 .home-header {
     float: left;
     width: 100%;
@@ -161,6 +170,10 @@
 
 .home-mail .iconfont {
     font-size: 2rem !important;
+}
+
+.icon-youxiang, .icon-CSDN, .icon-Git-, .icon-weixin, .icon-qq, .icon-wo-copy {
+    color: #ddd;
 }
 
 .rqcode {
@@ -241,7 +254,7 @@
 }
 
 .icon-biaoqian {
-    font-size: 1rem !important;
+    font-size: 16px !important;
 }
 
 .home-lable-photo-band {
