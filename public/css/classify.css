@@ -22,10 +22,10 @@
 }
 
 .classify-main{
-    position: absolute;
+    position: relative;
     width: 100%;
     min-height: 10rem;
-    top: 11rem;
+    top: -5rem;
 }
 
 .classify-main-top{
@@ -199,6 +199,7 @@
 }
 
 .classify-lable-page{
+    position: relative;
     display: inline-block;
     width: 100%;
     height: 3rem;
@@ -206,6 +207,13 @@
     padding: 0 1rem;
     color: #606266;
     box-sizing: border-box;
+}
+
+.classify-lable-page span{
+    display: inline-table;
+    width: auto;
+    position: absolute;
+    left: 50%;
 }
 
 .classify-page-pre {

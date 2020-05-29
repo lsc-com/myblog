@@ -1,36 +1,5 @@
 <template>
     <div class="about">
-        <ul class="home_nav">
-            <router-link to="/">
-                <li>OPEN</li>
-            </router-link>
-            <router-link to="/">
-                <li>HomePage</li>
-            </router-link>
-            <router-link to="/classify">
-                <li>Classify</li>
-            </router-link>
-            <router-link to="/timer">
-                <li>Timer</li>
-            </router-link>
-            <router-link to="/music">
-                <li>Music</li>
-            </router-link>
-            <router-link to="/message">
-                <li>Message</li>
-            </router-link>
-            <router-link to="/about">
-                <li>About</li>
-            </router-link>
-            <li class="home-input">
-                <el-input
-                        @keyup.enter.native="searchIn"
-                        placeholder="请输入内容"
-                        prefix-icon="el-icon-search"
-                        v-model="homeInput"
-                ></el-input>
-            </li>
-        </ul>
         <div class="about-header">
             <img src="../../../public/imgs/classify/header.jpg">
             <span>This is my page</span>
@@ -140,30 +109,6 @@
             </div>
         </div>
         <div style="clear: both"></div>
-        <div class="home-main-footer">
-            <div class="home-main-footer-top">
-                <div class="home-main-footer-content">
-                    <img alt="" src="../../../public/imgs/code/wcode.jpg">
-                </div>
-                <div class="home-main-footer-content">
-                    <h2>New Blog</h2>
-                    <span>this is a new blog</span>
-                </div>
-                <div class="home-main-footer-content">
-                    <h2>Contact Me</h2>
-                    <span>Email: 1099421282@qq.com</span>
-                </div>
-                <div class="home-main-footer-content-last">
-                    <h2>Today is</h2>
-                    <span>{{nowTime}}</span>
-                </div>
-            </div>
-            <div style="width:100%;height:.05rem;background:#ffffff;margin:0 auto 2rem auto;float:left"></div>
-            <span style="color:#409EFF">
-        @ Made In Lsc
-      </span>
-        </div>
-        <el-backtop></el-backtop>
     </div>
 </template>
 

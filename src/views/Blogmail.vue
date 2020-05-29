@@ -2,31 +2,28 @@
     <div>
         <mobile class="mobile"></mobile>
         <pc class="pc"></pc>
+
     </div>
 </template>
 
-
 <script>
-    import mobile from '../components/mobile/Home'
-    import pc from '../components/pc/Home'
+    import mobile from '../components/mobile/Blogmail'
+    import pc from '../components/pc/Blogmail'
     export default {
-        name: 'Home',
-        components:{
+        data() {
+            return {
+            }
+        },
+        components: {
             mobile,
             pc
-        },
-        mounted() {
-            this.$store.dispatch('HIDE_HEADER')
-        },
-        destroyed() {
-            this.$store.dispatch('SHOW_HEADER')
         }
+
 
     }
 </script>
 
 <style scoped>
-
     @media only screen and  (max-width: 768px){
         .pc{
             display: none !important;

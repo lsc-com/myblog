@@ -229,5 +229,5 @@
     }
 </script>
 
-<style scoped="scoped" src="../../../public/css/moblie/about.css">
+<style scoped="scoped" src="../../../public/css/mobile/about.css">
 </style>

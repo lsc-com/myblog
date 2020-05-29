@@ -17,6 +17,14 @@
         components: {
             mobile,
             pc
+        },
+        mounted() {
+            this.$store.dispatch('HIDE_FOOTER')
+            this.$store.dispatch('HIDE_HEADER')
+        },
+        destroyed() {
+            this.$store.dispatch('SHOW_FOOTER')
+            this.$store.dispatch('SHOW_HEADER')
         }
     };
 </script>

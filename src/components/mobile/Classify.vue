@@ -143,8 +143,7 @@
         },
         methods: {
             getData() {
-                axios.get('/js/home.json').then((res) => {
-                    console.log(res)
+                axios.get('/admin/blogs/listType').then((res) => {
                     this.blog = res.data.blog
                 })
             },
@@ -199,6 +198,6 @@
     }
 </script>
 
-<style scoped="scoped" src="../../../public/css/moblie/classify.css">
+<style scoped="scoped" src="../../../public/css/mobile/classify.css">
 
 </style>

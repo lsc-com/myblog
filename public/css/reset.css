@@ -40,20 +40,6 @@ samp {
     font-family: tahoma, arial, "Hiragino Sans GB", "微软雅黑", simsun, sans-serif
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-small,
-big,
-input,
-textarea,
-button,
-select {
-    font-size: 100%
-}
 
 h1,
 h2,
@@ -70,20 +56,19 @@ h3,
 h4,
 h5,
 h6,
-b,
-strong {
+b   {
     font-weight: normal
 }
 
-address,
-cite,
-dfn,
-em,
-i,
-optgroup,
-var {
-    font-style: normal
-}
+/*address,*/
+/*cite,*/
+/*dfn,*/
+/*em,*/
+/*i,*/
+/*optgroup,*/
+/*var {*/
+/*    font-style: normal*/
+/*}*/
 
 table {
     border-collapse: collapse;
@@ -165,22 +150,10 @@ input::-moz-focus-inner {
     border: 0
 }
 
-mark {
-    background-color: transparent
-}
-
-a,
-ins,
-s,
-u,
-del {
+a{
     text-decoration: none
 }
 
-sup,
-sub {
-    vertical-align: baseline
-}
 
 html {
     overflow-x: hidden;
@@ -189,7 +162,7 @@ html {
 }
 
 body {
-    height: 100%;
+    min-height: 100%;
     text-align: center;
     background: url(../imgs/bg/bg1.webp) no-repeat center center;
     background-size: cover;
@@ -199,6 +172,12 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.blog-article img{
+    width:auto;
+    max-width: 100%;
+    margin: 20px auto;
 }
 
 @media only screen and  (max-width: 768px){
@@ -242,6 +221,15 @@ a {
         top: .08rem;
         left: .1rem;
     }
+    .el-divider__text {
+        position: absolute;
+        background-color: #ffffff2b;
+        padding: 0 20px;
+        color: #303133;
+        border-radius: .1rem;
+    }
+
+
 }
 @media only screen and (min-width: 769px){
     html{
@@ -251,5 +239,16 @@ a {
     .el-textarea__inner{
         min-height: 130px !important;
     }
-
+    .el-divider__text {
+        position: absolute;
+        background-color: #ffffff2b;
+        padding: 0 20px;
+        color: #303133;
+        border-radius: 5px;
+    }
+    .home-lable-photo-box {
+        flex: 1;
+        float: left;
+        margin: 1rem;
+    }
 }

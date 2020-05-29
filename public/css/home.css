@@ -106,11 +106,18 @@
 
 
 
-@media screen and (max-height:700px) {
+@media screen and (max-height:800px) {
     .home-header, .home-bg{
         height: 800px !important;
     }
 }
+
+@media screen and (min-height:400px) {
+    .home-header, .home-bg{
+        height: 800px !important;
+    }
+}
+
 
 
 .home-header {
@@ -383,18 +390,25 @@
 }
 
 .home-article-page {
+    position: relative;
     display: inline-block;
     width: 80%;
     height: 4rem;
     line-height: 4rem;
-    margin: 0 auto;
-    margin-top: 1rem;
+    margin: 1rem auto;
     padding: 0 2rem;
     color: #606266;
     background: #ffffffb3;
     border-radius: .5rem;
 }
 
+.home-article-page span{
+    display: inline-table;
+    width: auto;
+    position: absolute;
+    left: 50%;
+
+}
 .home-page-pre {
     float: left;
     color: #409EFF;

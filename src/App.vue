@@ -1,17 +1,25 @@
 <template>
     <div id="app">
+        <Header v-show="$store.state.isHeaderShow" class="pc"/>
         <transition name="fade">
             <router-view/>
         </transition>
+        <Footer v-show="$store.state.isFooterShow" class="pc"/>
     </div>
 </template>
 
 <script>
-
+    import Header from "./components/public/Header";
+    import Footer from "./components/public/Footer";
     export default {
         name: 'App',
+        components:{
+            Footer,
+            Header
+        },
         data() {
             return{
+                bodyHeight:'',
             }
         },
         watch: {
@@ -21,6 +29,9 @@
                 document.documentElement.scrollTop = 0
             }
         },
+        mounted() {
+            // this.bodyHeight=document.documentElement.clientHeight
+        }
 
     }
 </script>
@@ -31,7 +42,6 @@
         font-family: Avenir, Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-align: center;
         color: #2c3e50;
     }
 
@@ -42,6 +52,13 @@
 
     .fade-enter, .fade-leave-to {
         opacity: 0
+    }
+
+
+    @media only screen and  (max-width: 768px){
+        .pc{
+            display: none !important;
+        }
     }
 
 </style>

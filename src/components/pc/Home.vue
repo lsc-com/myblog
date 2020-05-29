@@ -19,6 +19,9 @@
             <router-link to="/message">
                 <li>Message</li>
             </router-link>
+            <router-link to="/pic">
+                <li>Picture</li>
+            </router-link>
             <router-link to="/about">
                 <li>About</li>
             </router-link>
@@ -120,6 +123,9 @@
                 <router-link to="/message">
                     <div class="jump">Message</div>
                 </router-link>
+                <router-link to="/pic">
+                    <div class="jump">Picture</div>
+                </router-link>
                 <router-link to="/about">
                     <div class="jump">About</div>
                 </router-link>
@@ -132,10 +138,10 @@
                 <span>New Page</span>
             </div>
             <div class="home-lable-photo-band">
-                <div class="home-lable-photo-box" v-for="lable in homeLable" :key="lable.id">
+                <div class="home-lable-photo-box" v-for="lable in homeLable" :key="lable.id" @click="jumpBlog(lable)">
                     <div class="home-lable-photo">
                         <!--                        图片一定要 宽高比 10 : 7-->
-                        <img v-image-preview :src="lable.img">
+                        <img :src="lable.img">
                         <div class="home-lable-photo-title">
                             <span>{{lable.title}}</span>
                         </div>
@@ -149,23 +155,23 @@
                 <span>New Article</span>
             </div>
             <div :key="item.id" class="home-article" v-for="item in blog">
-                <div class="home-article-left">
+                <div class="home-article-left" @click="jumpBlog(item)">
                     <h2>{{item.title}}</h2>
-                    <span class="home-article-content">{{item.content}}</span>
+                    <span class="home-article-content" v-html="item.content"></span>
                     <div class="home-article-footer">
                         <img src="../../../public/imgs/home/dl.jpg">
-                        <span>{{item.author}}</span>
+                        <span>{{item.author}}LSC</span>
                         <span>
                             <i class="iconfont icon-xuanzeriqi"></i>
-                            {{item.date}}
+                            {{item.createTime}}
                         </span>
                         <span>
                             <i class="iconfont icon-eyes"></i>
-                            {{item.watched}}
+                            {{item.views}}
                         </span>
                         <span>
                             <i class="iconfont icon-chat51"></i>
-                            {{item.messages}}
+                            {{item.commentCount}}
                         </span>
                         <div class="home-article-btn">
                             <p>
@@ -175,45 +181,19 @@
                     </div>
                 </div>
                 <div class="home-article-right">
-                    <img v-image-preview :src="item.img">
+                    <img v-image-preview :src="item.firstPicture">
                 </div>
             </div>
         </div>
         <div class="home-article-page">
-            <div class="home-page-pre" v-if="currentPage!=1"><i class="el-icon-back"></i> Previous</div>
+            <div class="home-page-pre" v-if="currentPage!=1" @click="changePage('pre')"><i class="el-icon-back"></i> Previous</div>
             <span>{{currentPage}}/{{pageCount}}</span>
-            <div class="home-page-next" v-if="currentPage!=pageCount">Next <i class="el-icon-right"></i></div>
+            <div class="home-page-next" v-if="currentPage!=pageCount" @click="changePage('next')">Next <i class="el-icon-right"></i></div>
         </div>
-        <div class="home-main-footer">
-            <div class="home-main-footer-top">
-                <div class="home-main-footer-content">
-                    <img alt="" src="../../../public/imgs/code/wcode.jpg">
-                </div>
-                <div class="home-main-footer-content">
-                    <h2>New Blog</h2>
-                    <span>this is a new blog</span>
-                </div>
-                <div class="home-main-footer-content">
-                    <h2>Contact Me</h2>
-                    <span>Email: 1099421282@qq.com</span>
-                </div>
-                <div class="home-main-footer-content-last">
-                    <h2>Today is</h2>
-                    <span>{{nowTime}}</span>
-                </div>
-            </div>
-            <div style="width:100%;height:.05rem;background:#ffffff;margin:0 auto 2rem auto;float:left"></div>
-            <span style="color:#409EFF">
-        @ Made In Lsc
-      </span>
-        </div>
-        <el-backtop></el-backtop>
     </div>
 </template>
 
 <script>
-    import axios from "axios";
-
     export default {
         name: "Home",
         data() {
@@ -228,26 +208,45 @@
                 homeInput: '',
                 pageCount: 1,
                 currentPage: 1,
-                blog: [],
+                blog: [{
+                    content:''
+                }],
                 homeLable: [],
                 nowTime: ''
             }
         },
         methods: {
             getData() {
-                axios.get('/js/home.json').then((res) => {
-                    console.log(res)
-                    this.blog = res.data.blog
-                    this.homeLable = res.data.homeLable
+                this.$https.get('/admin/firstBlogPage?pageNo='+this.currentPage).then((res) => {
+                    let data = res.data
+                    this.pageCount = data.pages
+                    let array = []
+                    for (let i = 0 ; i < data.records.length; i ++) {
+                        let arr_Obj = {}
+                        let str = data.records[i].content
+                        let imgReg = /<img.*?(?:>|\/>)/gi;
+                        let arr = str.match(imgReg);
+                        if (arr){
+                            for (let j = 0 ; j < arr.length ; j ++ ){
+                                str = str.replace(arr[j], '');
+                            }
+                        }
+                        arr_Obj.content = str
+                        array.push(arr_Obj)
+                        console.log(arr)
+                    }
+                    for (let i = 0 ; i < data.records.length; i ++){
+                        data.records[i].content = array[i].content
+                    }
+                    this.blog = data.records
                 })
             },
             getHeight(){
                 this.contentStyleObj.height=window.innerHeight+'px';
             },
             handleScroll() {
-                var scroll =
+                let scroll =
                     window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-                // console.log(scrollTop)
                 if (scroll > 680) {
                     this.ulObj = {
                         home_nav: true,
@@ -264,8 +263,40 @@
                 alert(this.homeInput)
                 this.homeInput = ''
             },
+            jumpBlog(val){
+                this.$router.push('/blogmail/'+val.id)
+            },
+            changePage(val){
+                if (val == 'pre'){
+                    this.currentPage--
+                }else {
+                    this.currentPage++
+                }
+                this.$https.get('/admin/firstBlogPage?pageNo='+this.currentPage).then((res) => {
+                    let data = res.data
+                    this.pageCount = res.data.pages
+                    let array = []
+                    for (let i = 0 ; i < data.records.length; i ++) {
+                        let arr_Obj = {}
+                        let str = data.records[i].content
+                        let imgReg = /<img.*?(?:>|\/>)/gi;
+                        let arr = str.match(imgReg);
+                        if (arr){
+                            for (let j = 0 ; j < arr.length ; j ++ ){
+                                str = str.replace(arr[j], '');
+                            }
+                        }
+                        arr_Obj.content = str
+                        array.push(arr_Obj)
+                    }
+                    for (let i = 0 ; i < data.records.length; i ++){
+                        data.records[i].content = array[i].content
+                    }
+                    this.blog = data.records
+                })
+            },
             getTime () {
-                var _this = this;
+                const _this = this;
                 let yy = new Date().getFullYear();
                 let mm = new Date().getMonth() + 1;
                 let dd = new Date().getDate();

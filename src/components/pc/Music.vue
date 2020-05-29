@@ -1,6 +1,6 @@
 <template>
-    <div class="music">
-        <ul class="home_nav">
+    <div class="music">>
+        <ul class="home_nav" style="top: 0">
             <router-link tag="a" target="_blank" to="/">
                 <li>OPEN</li>
             </router-link>
@@ -21,6 +21,9 @@
             </router-link>
             <router-link tag="a" target="_blank" to="/about">
                 <li>About</li>
+            </router-link>
+            <router-link tag="a" target="_blank" to="/pic">
+                <li>Picture</li>
             </router-link>
             <li class="home-input">
                 <el-input
@@ -497,12 +500,12 @@
 
                 // 音频或视频文件已经就绪可以开始，在点击播放时触发
                 audio.addEventListener("play", () => {
-                    console.log("play");
+                    // console.log("play");
                 });
 
                 // 浏览器开始寻找指定的音频或视频
                 audio.addEventListener("loadstart", () => {
-                    console.log("loadstart");
+                    // console.log("loadstart");
 
                     // 当前音量进度
                     _this.volume = audio.volume;
@@ -536,18 +539,18 @@
 
                 // 音频或视频能够不停顿地一直播放
                 audio.addEventListener("canplaythrough", () => {
-                    console.log("canplaythrough");
+                    // console.log("canplaythrough");
                 });
 
                 // 音频或视频的时长已改变
                 audio.addEventListener("durationchange", () => {
-                    console.log("durationchange");
+                    // console.log("durationchange");
                     _this.totalTime = _this.timeToString(audio.duration);
                 });
 
                 // 在音频或视频终止加载时触发，包括终止当前播放（未加载完）进行下一首播放时也会触发
                 audio.addEventListener("abort", () => {
-                    console.log("abort");
+                    // console.log("abort");
                 });
 
                 // 在音频或视频加载发生错误时触发
@@ -574,7 +577,7 @@
                 audio.addEventListener(
                     "ended",
                     () => {
-                        console.log("ended");
+                        // console.log("ended");
                         switch (_this.playType) {
                             case 1: // 列表循环
                                 _this.index =
@@ -797,7 +800,7 @@
                 var time = new Date(d)
                 _this.gettime = time
             },
-        }
+        },
     };
 </script>
 

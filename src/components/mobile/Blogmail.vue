@@ -1,5 +1,5 @@
 <template>
-    <div class="message">
+    <div class="blog">
         <div :class="nav_click" @click="openNav">
         </div>
         <ul :class="nav_obj" class="homem-nav">
@@ -34,20 +34,77 @@
             </li>
             <li @click="closeNav"><i class="el-icon-circle-close"></i></li>
         </ul>
-        <div class="message-header">
+        <div class="blog-header">
             <img alt="" src="../../../public/imgs/classify/header.jpg">
-            <span>Our progress can be shared</span>
+            <span class="blog-header-title">
+                你好啊
+            </span>
+            <div class="blog-header-bot">
+                <span>
+                    <i class="iconfont icon-wo-copy"></i>
+<!--                    {{blog_obj.author}}-->
+                </span>
+                <span>
+                    <i class="iconfont icon-xuanzeriqi"></i>
+<!--                    {{blog_obj.date}}-->
+                </span>
+                <span>
+                    <i class="iconfont icon-sort"></i>
+<!--                    {{blog_obj.classify}}-->
+                </span>
+                <span class="blog-code">
+<!--                    {{blog_obj.code}}-->
+                </span>
+            </div>
         </div>
-        <div style="clear: both"></div>
+        <div class="blog-main">
+            <div class="blog-main-article">
+                <div class="blog-article" v-html="blog_obj.content">
+<!--                    {{blog_obj.content}}-->
+                </div>
+                <el-divider>E N D</el-divider>
+                <span class="blog-like-content">
+                    如果您觉得这篇文章写得还行，请给个赞哟！
+                </span>
+                <div class="blog-content-footer">
+                    <div :class="like_obj" :style="'color:'+favorite==true?'red':'' ">
+                        <i @click="clickLike" class="iconfont icon-xihuan"></i>
+<!--                        {{blog_obj.watched}}-->
+                    </div>
+                    <div>
+                        <i class="iconfont icon-eyes"></i>
+<!--                        {{blog_obj.watched}}-->
+                    </div>
+                    <div>
+                        <i class="iconfont icon-chat51"></i>
+<!--                        {{blog_obj.messages}}-->
+                    </div>
+                </div>
+                <el-popover
+                        placement="bottom"
+                        title=""
+                        width="200"
+                        trigger="click">
+                    <img class="rqcodep" src="../../../public/imgs/code/wcode.jpg" alt="微信">
+                    <img class="rqcodep" src="../../../public/imgs/code/zcode.jpg" alt="支付宝">
+                    <el-button plain slot="reference" type="warning" id="message-input">打赏</el-button>
+                </el-popover>
+
+            </div>
+        </div>
         <div class="message-main">
             <div class="message-main-header">
-                <el-input
-                        id="message-input"
-                        type="textarea"
-                        :rows="3"
+<!--                <el-input-->
+<!--                        :rows="3"-->
+<!--                        :placeholder="textanswer"-->
+<!--                        v-model="textarea">-->
+<!--                </el-input>-->
+                <textarea
+                        class="blog-message-textarea"
+                        rows="3"
                         :placeholder="textanswer"
                         v-model="textarea">
-                </el-input>
+                </textarea>
                 <input type="text"
                        @keyup.enter="addMessage"
                        class="message-username"
@@ -57,9 +114,9 @@
                 <div class="message-username-btn" @click="addMessage">发布留言</div>
             </div>
             <div class="message-main-content">
-                <h2>留言</h2>
+                <h2>评论</h2>
                 <div style="width:100%;height:.01rem;background:#acacac;margin:.1rem auto"></div>
-                <span v-show="messageForm.length==0">当前暂无留言,欢迎留言！</span>
+                <span v-show="messageForm.length==0">当前暂无评论,欢迎评论！</span>
                 <div class="message-content" v-for="message in messageForm" :key="message.id">
                     <img src="../../../public/imgs/home/tx.jpg" alt="">
                     <div class="message-content-right">
@@ -80,7 +137,6 @@
                 <div style="clear:both"></div>
             </div>
         </div>
-
         <div class="homem-footer">
             <div class="homem-footer-top">
                 <div>
@@ -99,9 +155,9 @@
 </template>
 
 <script>
-    import axios from 'axios';
+
     export default {
-        name: "Message",
+        name: "Blogmail",
         data() {
             return{
                 nav_obj: {
@@ -113,21 +169,39 @@
                     init_click: true,
                     nav_click_out: false,
                 },
+                like_obj:{
+                    init_like:true,
+                    like_in:false,
+                },
+                favorite: false,
                 homeInput:'',
-                nowTime: '',
+                blogId: this.$route.params.id,
+                blog_obj:{},
                 textarea: '',  //留言内容
-                textanswer:'请输入留言内容',
+                textanswer:'请输入您的评论',
                 inputName: '',   //  昵称
                 messageForm: [],  //  留言信息
                 anid:'',  //当前回复id
-
+                nowTime:'',
             }
         },
         methods: {
             getData() {
-                axios.get('http://rap2.taobao.org:38080/app/mock/252840/Message').then((res) => {
-                    this.messageForm = res.data.message
-                })
+                // axios.get('/admin/getBlogDetail?blogId='+this.blogId).then((res) =>{
+                //     console.log(res)
+                //     console.log(this.blogId)
+                //     this.blog_obj = res.data
+                //     console.log(this.blog_obj.title)
+                    // for (let i = 0; i<res.data.blog.length;i++){
+                    //     if (this.blogId == res.data.blog[i].id){
+                    //         this.blog_obj = res.data.blog[i]
+                    //     }
+                    // }
+                // })
+            },
+            searchIn() {
+                alert(this.homeInput)
+                this.homeInput = ''
             },
             openNav() {
                 this.nav_obj = {
@@ -151,11 +225,26 @@
                     nav_click_out: false
                 }
             },
-            searchIn() {
+            clickLike() {
+                console.log(this.favorite)
+                this.favorite = !this.favorite
 
+                // if (this.favorite) {
+                //     this.like_obj = {
+                //         init_like: false,
+                //         like_in: true
+                //     }
+                // } else {
+                //     this.like_obj = {
+                //         init_like: true,
+                //         like_in: false
+                //     }
+                // }
+                // this.favorite = !this.favorite
+                // console.log(this.favorite)
             },
             answerClick(val1,val2) {
-                document.documentElement.scrollTop = document.body.scrollTop = 0;
+                document.querySelector("#message-input").scrollIntoView(true)
                 // this.textanswer = '@'+val.name
                 if(val2 == 0){
                     this.textanswer = '@' +val1.name
@@ -167,77 +256,15 @@
 
             },
             addMessage() {
-                const _this = this  // 防止this指向改变
-                if (this.inputName&&this.textarea){  // 判断输入框是否是空
-                    if (this.anid){  //  查找当前是否是回复状态，anid存在就是回复状态
-                        for (var i = 0; i<_this.messageForm.length; i ++){  //  在留言数组中查找与回复id匹配的一条
-                            if (_this.messageForm[i].mid == _this.anid){
-                                let anobj = {}  //  创建对象，方便将输入数据存储
-                                anobj.mid = _this.anid  //  id
-                                anobj.name = _this.inputName  // 昵称
-                                anobj.answername = _this.textanswer  // 回复的昵称
-                                anobj.date = _this.nowTime  // 当前时间
-                                anobj.content = _this.textarea  // 输入内容
-                                console.log(_this.messageForm[i].sub)
-                                if (_this.messageForm[i].sub){  // 判断当前留言是否存在回复
-                                    _this.messageForm[i].sub.push(anobj) // 存在回复直接推送当前对象至回复数组
-                                    this.$message({  // 提示回复状态
-                                        message: '留言成功！',
-                                        type: 'success'
-                                    });
-                                }else{
-                                    _this.messageForm[i].sub = []  // 当前回复不存在时，创建一个回复数组
-                                    _this.messageForm[i].sub.push(anobj)  // 将输入的内容对象推送到回复数组
-                                    this.$message({  //  提示回复状态
-                                        message: '留言成功！',
-                                        type: 'success'
-                                    });
-                                }
-                            }
-                        }
-                    }else{  // 如果是新建留言，则直接在数组第一层添加对象
-                        let anobj = {}  // 创建留言的对象
-                        anobj.mid = _this.messageForm.length + 1 // 自动生成id，如果有删除存在就会产生bug
-                        anobj.name = _this.inputName  // 存储信息
-                        anobj.date = _this.nowTime
-                        anobj.content = _this.textarea
-                        _this.messageForm.push(anobj)  // 将留言对象推送到数组第一层
-                        console.log(_this.messageForm)
-                        this.$message({  //  提示回复状态
-                            message: '留言成功！',
-                            type: 'success'
-                        });
-                    }
-                    _this.anid = ''  //清空当前id 输入框内容
-                    _this.textarea = '';
-                    _this.textanswer = '请输入留言内容'
-                }else{
-                    this.$message.error('请输入内容和昵称');
-                }
-            },
-            getTime () {
-                var _this = this;
-                let yy = new Date().getFullYear();
-                let mm = new Date().getMonth() + 1;
-                let dd = new Date().getDate();
-                let hh = new Date().getHours();
-                let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
-                // let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
-                // var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
-                // var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
-                // var time = new Date(d)
-                // var time = new Date(d)
-                let timer = yy+'-'+mm+'-'+dd+' '+hh+':'+mf
-                _this.nowTime = timer
-                // _this.nowTime =String(time).substring(0,15) // 转换成日期字符串
+
             },
         },
         mounted() {
-            this.getData();
-            this.getTime();
-        }
+            this.getData()
+        },
+
     }
 </script>
+<style scoped="scoped" src="../../../public/css/mobile/blogmail.css">
 
-<style scoped="scoped" src="../../../public/css/mobile/message.css">
 </style>

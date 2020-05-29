@@ -34,7 +34,7 @@
             </li>
             <li @click="closeNav"><i class="el-icon-circle-close"></i></li>
         </ul>
-        <div :style="contentStyleObj" class="homem-header">
+        <div :style="contentStyleObj" class="homem-header" @click.stop="closeNav">
             <div :style="contentStyleObj" class="homem-bg"></div>
             <div class="homem-logo">
                 <img v-image-preview src="../../../public/imgs/home/tx.jpg"/>
@@ -109,7 +109,7 @@
             </div>
         </div>
         <div style="clear:both"></div>
-        <div class="homem-lable">
+        <div class="homem-lable"  @click.stop="closeNav">
             <div class="homem-lable-title">
                 <span><i class="iconfont icon-biaoqian"></i></span>
                 <span>New Page</span>
@@ -118,7 +118,7 @@
                 <div :key="lable.id" class="homem-lable-photo-box" v-for="lable in homeLable">
                     <div class="homem-lable-photo">
                         <!--                        图片一定要 宽高比4:3-->
-                        <img v-image-preview :src="lable.img" alt="">
+                        <img :src="lable.img" alt="">
                         <div class="homem-lable-photo-title">
                             <span>{{lable.title}}</span>
                         </div>
@@ -126,14 +126,14 @@
                 </div>
             </div>
         </div>
-        <div class="homem-article">
+        <div class="homem-article" @click.stop="closeNav">
             <div class="homem-lable-title">
                 <span><i class="iconfont icon-biaoqian"></i></span>
                 <span>New Page</span>
             </div>
             <div class="homem-article-box" v-for="item in blog" :key="item.id">
                 <img v-image-preview :src="item.img">
-                <span>{{item.title}}</span>
+                <span @click="jumpBlog(item)">{{item.title}}</span>
                 <div class="homem-blog-code">
                     {{item.code}}
                 </div>
@@ -161,7 +161,7 @@
                 <div class="homem-page-next" v-if="currentPage!=pageCount">Next <i class="el-icon-right"></i></div>
             </div>
         </div>
-        <div class="homem-footer">
+        <div class="homem-footer" @click.stop="closeNav">
             <div class="homem-footer-top">
                 <div>
                     <h2>最新博文</h2>
@@ -207,10 +207,11 @@
         },
         methods: {
             getData() {
-                axios.get('/js/home.json').then((res) => {
-                    console.log(res)
-                    this.blog = res.data.blog
-                    this.homeLable = res.data.homeLable
+                this.$https.get('/admin/firstBlogPage?pageNo='+this.currentPage).then((res) => {
+                    console.log(res.data.records)
+                    this.pageCount = res.data.pages
+                    this.blog = res.data.records
+                    // this.homeLable = res.data.homeLable
                 })
             },
             searchIn() {
@@ -241,6 +242,9 @@
             },
             getHeight() {
                 this.contentStyleObj.height = window.innerHeight + 'px';
+            },
+            jumpBlog(val){
+                this.$router.push('/blogmail/'+val.id)
             },
             getTime () {
                 var _this = this;
@@ -275,7 +279,7 @@
 </script>
 
 <style scoped>
-@import "../../../public/css/moblie/home.css";
+@import "../../../public/css/mobile/home.css";
 
 .homem-blog-code{
     float: right;

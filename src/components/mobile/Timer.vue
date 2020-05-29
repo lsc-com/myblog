@@ -137,5 +137,5 @@
     };
 </script>
 
-<style scoped="scoped" src="../../../public/css/moblie/timer.css">
+<style scoped="scoped" src="../../../public/css/mobile/timer.css">
 </style>

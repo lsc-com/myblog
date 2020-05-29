@@ -18,7 +18,7 @@
     background-size: 90% 90%;
     background-position: center;
     border-radius: .05rem;
-    z-index: 4;
+    z-index: 9;
 }
 
 .nav_click_out{
@@ -43,7 +43,7 @@
     padding-top: 0.3rem;
     font-size: .14rem;
     background: #000000d1;
-    z-index: 9;
+    z-index: 8;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -81,27 +81,27 @@
 .nav_out{
     flex-direction: row;
     justify-content: center;
-    animation: go_out 1s;
-    visibility: hidden;
+    animation: go_out 10s;
     z-index: 1;
-    position: fixed;
-    top: 0;
+    position: absolute;
+    transform: translateY(-100%);
     width: 100%;
     min-height: 3rem;
     padding-top: 0.3rem;
     font-size: .14rem;
     background: #000000b0;
-    opacity: 0;
 }
 
 
 @keyframes go_out {
     0% {
         opacity: 1;
-        visibility: visible;
+        transform: translateY(0);
     }
     100% {
-        opacity: 0;
+        z-index: 5;
+        top: -100%;
+        transform: translateY(-100%);
     }
 }
 
@@ -132,15 +132,6 @@
     z-index: -1;
 }
 
-@media only screen and (max-height:712px) {
-    .homem-header, .homem-bg{
-        height: 5.2rem !important;
-    }
-    .homem-nav ,.nav_in{
-        height: 1.5rem !important;
-        overflow: scroll;
-    }
-}
 
 .homem-header {
     float: left;
@@ -198,7 +189,7 @@
 }
 
 .rqcodem {
-    height: .6rem;
+    height: .5rem;
     width: .5rem;
     margin: -.08rem;
 }

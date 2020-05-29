@@ -5,22 +5,19 @@
     </div>
 </template>
 
-
 <script>
-    import mobile from '../components/mobile/Home'
-    import pc from '../components/pc/Home'
+    import mobile from '../components/mobile/Pic'
+    import pc from '../components/pc/Pic'
     export default {
-        name: 'Home',
-        components:{
+        data() {
+            return {
+            }
+        },
+        components: {
             mobile,
             pc
-        },
-        mounted() {
-            this.$store.dispatch('HIDE_HEADER')
-        },
-        destroyed() {
-            this.$store.dispatch('SHOW_HEADER')
         }
+
 
     }
 </script>

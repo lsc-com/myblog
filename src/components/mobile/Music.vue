@@ -499,6 +499,6 @@
     }
 </script>
 
-<style scoped="scoped" src="../../../public/css/moblie/style.css">
+<style scoped="scoped" src="../../../public/css/mobile/style.css">
 
 </style>
