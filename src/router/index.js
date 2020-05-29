@@ -8,7 +8,6 @@ import Timer from "../views/Timer";
 import About from "../views/About";
 import Blogmail from "../views/Blogmail";
 import Pic from "../views/Pic";
-import Test from "../components/pc/Test";
 import Four from "../views/Four";
 
 Vue.use(VueRouter)
@@ -84,16 +83,7 @@ const routes = [{
         meta: {
             title: '页面找不到了'
         },
-    },
-    {
-        path: '/test',
-        name: 'Test',
-        component: Test,
-        meta: {
-            title: '页面找不到了'
-        },
-    },
-
+    }
 ]
 
 const router = new VueRouter({

@@ -72,10 +72,16 @@
 .time-line-div span:nth-child(2) {
     display: block;
     height: 5rem;
+    line-height: 5rem;
     width: 85%;
     margin: 1rem auto;
+    padding: 0 1rem;
     background: #ffffffad;
     border-radius: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space:nowrap;
 }
 
 .img-dotted {

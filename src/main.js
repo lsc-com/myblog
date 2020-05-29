@@ -9,6 +9,10 @@ import '../public/css/reset.css'
 import '../public/iconfont/iconfont.css'
 import '../public/iconfont/iconfont.js'
 
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+Vue.use(preview)
+
 // 以下三个是点击图片变大
 import VueDirectiveImagePreviewer from 'vue-directive-image-previewer'
 import 'vue-directive-image-previewer/dist/assets/style.css'
