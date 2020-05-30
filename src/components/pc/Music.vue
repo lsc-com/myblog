@@ -465,7 +465,9 @@
         },
         methods: {
             searchIn() {
-
+                let routeData = this.$router.resolve({path: '/searchMail', query: {homeInput: this.homeInput}})
+                window.open(routeData.href, '_blank');
+                this.homeInput = ''
             },
 
             // 获取数据，并放入当前播放列表

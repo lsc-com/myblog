@@ -259,7 +259,7 @@
                 }
             },
             searchIn() {
-                alert(this.homeInput)
+                this.$router.push({path: '/searchMail', query: {homeInput: this.homeInput}})
                 this.homeInput = ''
             },
             jumpBlog(val){
@@ -298,7 +298,6 @@
         // 监听页面滚动
         mounted() {
             this.getData();
-            this.getTime();
             window.addEventListener('scroll', this.handleScroll);
         },
 
