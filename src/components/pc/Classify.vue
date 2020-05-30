@@ -85,7 +85,7 @@
                     let searchBlog = {
                         typeId: this.tag[0].id
                     }
-                    this.$https.post('/admin/blogs/blogSearch',searchBlog).then(res =>{
+                    this.$https.post('/admin/blogs/blogSearch?pageNo='+this.currentPage,searchBlog).then(res =>{
                         console.log(res)
                         var blog = []
                         for (let i = 0 ; i < res.data.list.length ; i ++) {
@@ -126,11 +126,12 @@
                 })
             },
             classify(val,item) {
+                this.currentPage = 1
                 this.activeIndex = val
                 let searchBlog = {
                     typeId: item.id
                 }
-                this.$https.post('/admin/blogs/blogSearch',searchBlog).then(res =>{
+                this.$https.post('/admin/blogs/blogSearch?pageNo='+this.currentPage,searchBlog).then(res =>{
                     var blog = []
                     for (let i = 0 ; i < res.data.list.length ; i ++) {
                         let time_obj = res.data.list[i]
@@ -144,9 +145,27 @@
                         time_obj.updateTime = time5
                         blog.push(time_obj)
                     }
-                    this.blog = blog
                     this.currentPage = res.data.pageNum
                     this.pageCount = res.data.pages
+                    let data = res.data.list
+                    let array = []
+                    for (let i = 0 ; i < data.length; i ++) {
+                        let arr_Obj = {}
+                        let str = data[i].content
+                        let imgReg = /<img.*?(?:>|\/>)/gi;
+                        let arr = str.match(imgReg);
+                        if (arr){
+                            for (let j = 0 ; j < arr.length ; j ++ ){
+                                str = str.replace(arr[j], '');
+                            }
+                        }
+                        arr_Obj.content = str
+                        array.push(arr_Obj)
+                    }
+                    for (let i = 0 ; i < data.length; i ++){
+                        data[i].content = array[i].content
+                    }
+                    this.blog = data
                     this.typeId = item.id
                 })
             },
@@ -156,25 +175,8 @@
                 }else {
                     this.currentPage++
                 }
-                let searchBlog = {
-                    typeId: this.typeId
-                }
-                this.$https.post('/admin/blogs/blogSearch?pageNo='+this.currentPage,searchBlog).then((res) => {
-                    var blog = []
-                    for (let i = 0 ; i < res.data.list.length ; i ++) {
-                        let time_obj = res.data.list[i]
-                        let time1 = String(time_obj.createTime).substring(0,10)
-                        let time2 = String(time_obj.createTime).substring(11,16)
-                        let time = time1 + ' ' + time2
-                        let time3 = String(time_obj.createTime).substring(0,10)
-                        let time4 = String(time_obj.createTime).substring(11,16)
-                        let time5 = time3 + ' ' + time4
-                        time_obj.createTime = time
-                        time_obj.updateTime = time5
-                        blog.push(time_obj)
-                    }
-                    this.blog = blog
-                })
+                this.getData()
+                document.documentElement.scrollTop = document.body.scrollTop = 0;
             },
             jumpBlog(val){
                 this.$router.push('/blogmail/'+val.id)

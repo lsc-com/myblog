@@ -27,7 +27,14 @@ router.beforeEach((to, from, next) => {
         document.title = to.meta.title
     }
     next()
+    if (to.matched.length ===0) {  //如果未匹配到路由
+        next('/four');   //如果上级也未匹配到路由则跳转登录页面，如果上级能匹配到则转上级路由
+    } else {
+        next();    //如果匹配到正确跳转
+    }
 })
+
+
 new Vue({
     router,
     store,

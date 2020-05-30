@@ -42,12 +42,23 @@
         name: "Header",
         data() {
             return {
-                homeInput: ''
+                homeInput: '',
+                routerPath: ''
+            }
+        },
+        watch:{
+            // eslint-disable-next-line no-unused-vars
+            $route(to,from){
+                console.log(to.path);
+                this.routerPath = to.path
             }
         },
         methods:{
             searchIn() {
-
+                if (this.routerPath !== '/searchMail'){
+                    this.$router.push({path:'/searchMail',query:{homeInput: this.homeInput}})
+                    this.homeInput = ''
+                }
             }
         }
     }

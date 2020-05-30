@@ -1,6 +1,5 @@
 <template>
     <div class="four" :style="contentStyleObj" @click="goback">
-
     </div>
 </template>
 
@@ -25,10 +24,14 @@
         created(){
             window.addEventListener('resize', this.getHeight);
             this.getHeight()
+            this.$store.dispatch('HIDE_FOOTER')
+            this.$store.dispatch('HIDE_HEADER')
         },
 
         destroyed(){
             window.removeEventListener('resize', this.getHeight)
+            this.$store.dispatch('SHOW_FOOTER')
+            this.$store.dispatch('SHOW_HEADER')
         }
     }
 </script>

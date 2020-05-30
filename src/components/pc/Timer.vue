@@ -30,6 +30,12 @@
         methods: {
             getData() {
                 this.$https.get('/admin/times').then(res =>{
+                    for (let i = 0 ; i < res.data.length; i++){
+                        let arr_obj = {}
+                        let time = String(res.data[i].updateTime).substring(0,10)
+                        arr_obj.updateTime = time
+                        res.data[i].updateTime = arr_obj.updateTime
+                    }
                     this.testList = res.data
                 })
             },

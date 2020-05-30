@@ -146,12 +146,6 @@
                     res.data.createTime = time
                     this.blog_obj = res.data
                     this.messageForm = res.data.comments
-                    // for (let i = 0 ; i < this.messageForm.length ; i ++) {
-                    //     for (let j = 0 ; j < this.messageForm[i].replyComments.length; j ++) {
-                    //         this.messageForm[i].replyComments[j] = res.data.comments[i].replyComments[j]
-                    //     }
-                    // }
-                    console.log(res)
                 })
                 this.$https.get('/admin/blogs/listType').then(res =>{
                     for (let i = 0 ; i < res.data.length; i ++){
@@ -206,6 +200,7 @@
                         }
                     ).then(res =>{
                         this.messageForm = res.data
+                        this.$message.success('评论成功！')
                     })
                 }else {
                     let comment = {
@@ -226,6 +221,7 @@
                         }
                     ).then(res =>{
                         this.messageForm = res.data
+                        this.$message.success('回复成功！')
                     })
                 }
                 this.anid = ''

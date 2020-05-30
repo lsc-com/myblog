@@ -8,6 +8,7 @@ import Timer from "../views/Timer";
 import About from "../views/About";
 import Blogmail from "../views/Blogmail";
 import Pic from "../views/Pic";
+import searchMail from "../views/searchMail";
 import Four from "../views/Four";
 
 Vue.use(VueRouter)
@@ -77,11 +78,19 @@ const routes = [{
         },
     },
     {
-        path: '/blogmail',
+        path: '/four',
         name: 'Four',
         component: Four,
         meta: {
             title: '页面找不到了'
+        },
+    },
+    {
+        path: '/searchMail',
+        name: 'searchMail',
+        component: searchMail,
+        meta: {
+            title: '搜索结果'
         },
     }
 ]

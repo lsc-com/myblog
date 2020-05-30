@@ -1,0 +1,155 @@
+.search-header{
+    width: 100%;
+    height: 15rem;
+    background: #000000ba;
+}
+.search-header span{
+    display: block;
+    color: #fff;
+    padding-top: 5rem;
+    font-size: 2.5rem;
+    position: relative;
+}
+.search-header img{
+    position: absolute;
+    display: block;
+    opacity: .5;
+    height: 15rem;
+    width: 100%;
+}
+
+.search-main{
+    position: relative;
+    width: 100%;
+    min-height: 18.3rem;
+    margin-top: -7rem;
+}
+
+
+.search-main-content{
+    width: 70%;
+    min-height: auto;
+    margin: 1rem auto;
+    background: #ffffffc9;
+    border-radius: .5rem;
+    border-top: .3rem solid #00b5ad;
+}
+
+.search-main-content ul{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 1rem 1rem 0 1rem;
+    box-sizing: border-box;
+}
+
+
+.search-main-lable{
+    width: 100%;
+    height: 16rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.search-main-lable-left{
+    float: left;
+    width: 70%;
+    height: 100%;
+    text-align: left;
+}
+
+
+.search-main-lable-left h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-main-lable-left>span {
+    display: block;
+    float: left;
+    height: 50%;
+    width: 94%;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.search-main-lable-footer {
+    float: left;
+    height: 2rem;
+    width: 100%;
+}
+
+.search-main-lable-footer img {
+    display: block;
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.search-main-lable-footer span {
+    display: block;
+    float: left;
+    height: 100%;
+    min-width: 1rem;
+    padding: .24rem .5rem;
+    color: #4183C4;
+    font-weight: 300;
+}
+
+.search-main-lable-btn {
+    float: right;
+    width: 6rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin-right: 1rem;
+    text-align: center;
+    color: #53a8ff;
+    font-size: .8rem;
+    background-color: #00000000;
+    border: 1px solid #79bbff;
+    border-radius: .4rem;
+}
+
+
+.search-main-lable-right{
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+
+.search-main-lable-right img {
+    display: block;
+    width: 100%;
+    height: 92%;
+    border-radius: .5rem;
+}
+
+.search-lable-page{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    color: #606266;
+    box-sizing: border-box;
+}
+
+.search-lable-page span{
+    display: inline-table;
+    width: auto;
+    position: absolute;
+    left: 48%;
+}
+
+.search-page-pre {
+    float: left;
+    color: #409EFF;
+}
+
+.search-page-next {
+    float: right;
+    color: #409EFF;
+}
