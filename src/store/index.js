@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         isHeaderShow: true,
-        isFooterShow: true
+        isFooterShow: true,
     },
     mutations: {
         SHOW_HEADER(state) {

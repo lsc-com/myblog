@@ -1,21 +1,27 @@
 <template>
     <div id="app">
         <Header v-show="$store.state.isHeaderShow" class="pc"/>
+        <MobileHeader class="mobile"/>
         <transition name="fade">
             <router-view/>
         </transition>
         <Footer v-show="$store.state.isFooterShow" class="pc"/>
+        <MobileFooter class="mobile"/>
     </div>
 </template>
 
 <script>
     import Header from "./components/public/Header";
     import Footer from "./components/public/Footer";
+    import MobileHeader from './components/mobile/public/Header';
+    import MobileFooter from './components/mobile/public/Footer';
     export default {
         name: 'App',
         components:{
             Footer,
-            Header
+            Header,
+            MobileHeader,
+            MobileFooter
         },
         data() {
             return{
@@ -57,6 +63,11 @@
 
     @media only screen and  (max-width: 768px){
         .pc{
+            display: none !important;
+        }
+    }
+    @media only screen and (min-width: 769px){
+        .mobile{
             display: none !important;
         }
     }

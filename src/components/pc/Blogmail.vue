@@ -77,7 +77,7 @@
             <div class="blog-main-header">
                 <el-input
                         type="textarea"
-                        :rows="2"
+                        :rows="3"
                         :placeholder="textanswer"
                         v-model="textarea">
                 </el-input>
@@ -93,7 +93,7 @@
             <div class="blog-main-content">
                 <h2>评论</h2>
                 <div style="width:100%;height:.01rem;background:#acacac;margin:.1rem auto"></div>
-<!--                <span v-show="messageForm.length==0">当前暂无留言,欢迎留言！</span>-->
+                <span v-show="messageForm.length==0">当前暂无留言,欢迎留言！</span>
                 <div class="blog-content" v-for="message in messageForm" :key="message.id">
                     <img :src="message.avatar" alt="">
                     <div class="blog-content-right">
@@ -145,7 +145,9 @@
                     let time = time1 + ' ' + time2
                     res.data.createTime = time
                     this.blog_obj = res.data
-                    this.messageForm = res.data.comments
+                    if (res.data.comments){
+                        this.messageForm = res.data.comments
+                    }
                 })
                 this.$https.get('/admin/blogs/listType').then(res =>{
                     for (let i = 0 ; i < res.data.length; i ++){

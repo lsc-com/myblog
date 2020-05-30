@@ -22,8 +22,8 @@
 
             <div class="classify-main-content">
                 <ul>
-                    <li :key="item.id" v-for="item in blog" @click="jumpBlog(item)">
-                        <div class="classify-main-lable">
+                    <li :key="item.id" v-for="item in blog">
+                        <div class="classify-main-lable" @click="jumpBlog(item)">
                             <div class="classify-main-lable-left">
                                 <h2>{{item.title}}</h2>
                                 <span v-html="item.content"></span>

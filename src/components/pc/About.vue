@@ -128,9 +128,6 @@
                 this.homeInput = ''
             }
         },
-        mounted() {
-            this.getTime()
-        },
 
 
     }

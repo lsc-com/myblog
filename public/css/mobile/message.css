@@ -113,7 +113,7 @@
 
 .message-content-right span:nth-child(1){
     height: .15rem;
-    line-height: .15rem;
+    line-height: .28rem;
     margin: 0 .05rem;
     color: #303133;
     font-size: .16rem;
@@ -124,7 +124,7 @@
 
 .message-content-right span:nth-child(2){
     height: .15rem;
-    line-height: .18rem;
+    line-height: .28rem;
     font-size: .12rem;
     color: #909399;
 }
@@ -132,7 +132,7 @@
 .message-content-details{
     width: 100%;
     min-height: .15rem;
-    margin: .3rem .03rem .03rem .03rem;
+    margin: .35rem .03rem .04rem .03rem;
     font-size: .14rem;
     text-align: left;
 }

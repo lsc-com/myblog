@@ -296,6 +296,18 @@
     box-sizing: border-box;
 }
 
+.homem-blog-code{
+    float: right;
+    height: .15rem;
+    width: 10%;
+    line-height: .15rem;
+    margin-top: .18rem;
+    font-size: .08rem;
+    color: #F56C6C;
+    border: 1px solid #F56C6C;
+    border-radius: .05rem;
+}
+
 .homem-article-box>img{
     width: 100%;
     border-radius: .05rem;

@@ -1,39 +1,5 @@
 <template>
     <div class="message">
-        <div :class="nav_click" @click="openNav">
-        </div>
-        <ul :class="nav_obj" class="homem-nav">
-            <router-link to="/">
-                <li>OPEN</li>
-            </router-link>
-            <router-link to="/">
-                <li>HomePage</li>
-            </router-link>
-            <router-link to="/classify">
-                <li>Classify</li>
-            </router-link>
-            <router-link to="/timer">
-                <li>Timer</li>
-            </router-link>
-            <router-link to="/music">
-                <li>Music</li>
-            </router-link>
-            <router-link to="/message">
-                <li>Message</li>
-            </router-link>
-            <router-link to="/about">
-                <li>About</li>
-            </router-link>
-            <li class="homem-input">
-                <el-input
-                        @keyup.enter.native="searchIn"
-                        placeholder="请输入内容"
-                        prefix-icon="el-icon-search"
-                        v-model="homeInput"
-                ></el-input>
-            </li>
-            <li @click="closeNav"><i class="el-icon-circle-close"></i></li>
-        </ul>
         <div class="message-header">
             <img alt="" src="../../../public/imgs/classify/header.jpg">
             <span>Our progress can be shared</span>
@@ -59,19 +25,18 @@
             <div class="message-main-content">
                 <h2>留言</h2>
                 <div style="width:100%;height:.01rem;background:#acacac;margin:.1rem auto"></div>
-                <span v-show="messageForm.length==0">当前暂无留言,欢迎留言！</span>
                 <div class="message-content" v-for="message in messageForm" :key="message.id">
-                    <img src="../../../public/imgs/home/tx.jpg" alt="">
+                    <img :src="message.avatar" alt="">
                     <div class="message-content-right">
-                        <span>{{message.name}}</span>
-                        <span>{{message.date}}</span>
+                        <span>{{message.nickname}}</span>
+                        <span>{{message.createTime}}</span>
                         <pre class="message-content-details">{{message.content}}</pre>
                         <span class="message-content-answer" @click="answerClick(message,0)">回复</span>
                     </div>
-                    <div class="message-content-answer-bind" v-for="answers in message.sub" :key="answers.id">
-                        <img src="../../../public/imgs/home/tx.jpg" alt="">
-                        <span>{{answers.name}}{{answers.answername}}</span>
-                        <span>{{answers.date}}</span>
+                    <div class="message-content-answer-bind" v-for="answers in message.replyMessages" :key="answers.id">
+                        <img :src="answers.avatar" alt="">
+                        <span>{{answers.nickname}}@{{answers.parentNickname}}</span>
+                        <span>{{answers.createTime}}</span>
                         <pre class="message-content-details">{{answers.content}}</pre>
                         <span class="message-content-answer" @click="answerClick(message,answers)">回复</span>
                     </div>
@@ -80,41 +45,14 @@
                 <div style="clear:both"></div>
             </div>
         </div>
-
-        <div class="homem-footer">
-            <div class="homem-footer-top">
-                <div>
-                    <h2>最新博文</h2>
-                    <span>这是最新博客</span>
-                </div>
-                <div>
-                    <h2>联系我</h2>
-                    <span>Email:1099421282@qq.com</span>
-                </div>
-            </div>
-            <div class="homem-footer-bot">本站已运营0天</div>
-        </div>
-        <el-backtop></el-backtop>
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
     export default {
         name: "Message",
         data() {
             return{
-                nav_obj: {
-                    init_nav: true,
-                    nav_in: false,
-                    nav_out: false
-                },
-                nav_click: {
-                    init_click: true,
-                    nav_click_out: false,
-                },
-                homeInput:'',
-                nowTime: '',
                 textarea: '',  //留言内容
                 textanswer:'请输入留言内容',
                 inputName: '',   //  昵称
@@ -123,118 +61,80 @@
 
             }
         },
+        watch:{
+            inputName() {
+                if (this.inputName.length == 10){
+                    this.$message.error('昵称最多十个字符');
+                }
+            }
+        },
         methods: {
             getData() {
-                axios.get('http://rap2.taobao.org:38080/app/mock/252840/Message').then((res) => {
-                    this.messageForm = res.data.message
+                this.$https.get('/message').then((res) => {
+                    this.messageForm = res.data
+                    console.log(res)
                 })
-            },
-            openNav() {
-                this.nav_obj = {
-                    init_nav: false,
-                    nav_in: true,
-                    nav_out: false
-                }
-                this.nav_click = {
-                    init_click: false,
-                    nav_click_out: true
-                }
-            },
-            closeNav() {
-                this.nav_obj = {
-                    init_nav: false,
-                    nav_in: false,
-                    nav_out: true
-                }
-                this.nav_click = {
-                    init_click: true,
-                    nav_click_out: false
-                }
-            },
-            searchIn() {
-
             },
             answerClick(val1,val2) {
                 document.documentElement.scrollTop = document.body.scrollTop = 0;
-                // this.textanswer = '@'+val.name
                 if(val2 == 0){
-                    this.textanswer = '@' +val1.name
-                    this.anid = val1.mid
+                    this.textanswer = '@' +val1.nickname
+                    this.anid = val1.id
                 }else{
-                    this.textanswer = '@' +val2.name
-                    this.anid = val2.mid
+                    this.textanswer = '@' +val2.nickname
+                    this.anid = val2.id
                 }
-
             },
             addMessage() {
                 const _this = this  // 防止this指向改变
-                if (this.inputName&&this.textarea){  // 判断输入框是否是空
-                    if (this.anid){  //  查找当前是否是回复状态，anid存在就是回复状态
-                        for (var i = 0; i<_this.messageForm.length; i ++){  //  在留言数组中查找与回复id匹配的一条
-                            if (_this.messageForm[i].mid == _this.anid){
-                                let anobj = {}  //  创建对象，方便将输入数据存储
-                                anobj.mid = _this.anid  //  id
-                                anobj.name = _this.inputName  // 昵称
-                                anobj.answername = _this.textanswer  // 回复的昵称
-                                anobj.date = _this.nowTime  // 当前时间
-                                anobj.content = _this.textarea  // 输入内容
-                                console.log(_this.messageForm[i].sub)
-                                if (_this.messageForm[i].sub){  // 判断当前留言是否存在回复
-                                    _this.messageForm[i].sub.push(anobj) // 存在回复直接推送当前对象至回复数组
-                                    this.$message({  // 提示回复状态
-                                        message: '留言成功！',
-                                        type: 'success'
-                                    });
-                                }else{
-                                    _this.messageForm[i].sub = []  // 当前回复不存在时，创建一个回复数组
-                                    _this.messageForm[i].sub.push(anobj)  // 将输入的内容对象推送到回复数组
-                                    this.$message({  //  提示回复状态
-                                        message: '留言成功！',
-                                        type: 'success'
-                                    });
-                                }
+                if (this.inputName&&this.textarea) {  // 判断输入框是否是空
+                    if (this.anid) {  //  查找当前是否是回复状态，anid存在就是回复状态
+                        let message = {
+                            nickname: _this.inputName,
+                            email: '1099875489@qq.com',
+                            content: _this.textarea,
+                            parentMessage: {
+                                id: this.anid
                             }
                         }
-                    }else{  // 如果是新建留言，则直接在数组第一层添加对象
-                        let anobj = {}  // 创建留言的对象
-                        anobj.mid = _this.messageForm.length + 1 // 自动生成id，如果有删除存在就会产生bug
-                        anobj.name = _this.inputName  // 存储信息
-                        anobj.date = _this.nowTime
-                        anobj.content = _this.textarea
-                        _this.messageForm.push(anobj)  // 将留言对象推送到数组第一层
-                        console.log(_this.messageForm)
-                        this.$message({  //  提示回复状态
-                            message: '留言成功！',
-                            type: 'success'
-                        });
+                        this.$https.post('/message/addMessage',
+                            message,
+                            {
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            }
+                        ).then(() => {
+                            this.$message.success('留言成功！')
+                            this.getData()
+                        })
+                    } else {
+                        let message = {
+                            nickname: _this.inputName,
+                            email: '1099875489@qq.com',
+                            content: _this.textarea,
+                            parentMessage: {
+                                id: -1
+                            }
+                        }
+                        this.$https.post('/message/addMessage',
+                            message,
+                            {
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            }
+                        ).then(() => {
+                            this.$message.success('留言成功！')
+                            this.getData()
+                        })
                     }
-                    _this.anid = ''  //清空当前id 输入框内容
-                    _this.textarea = '';
-                    _this.textanswer = '请输入留言内容'
-                }else{
-                    this.$message.error('请输入内容和昵称');
                 }
-            },
-            getTime () {
-                var _this = this;
-                let yy = new Date().getFullYear();
-                let mm = new Date().getMonth() + 1;
-                let dd = new Date().getDate();
-                let hh = new Date().getHours();
-                let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
-                // let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
-                // var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
-                // var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
-                // var time = new Date(d)
-                // var time = new Date(d)
-                let timer = yy+'-'+mm+'-'+dd+' '+hh+':'+mf
-                _this.nowTime = timer
-                // _this.nowTime =String(time).substring(0,15) // 转换成日期字符串
-            },
+                this.textarea = ''
+            }
         },
         mounted() {
             this.getData();
-            this.getTime();
         }
     }
 </script>

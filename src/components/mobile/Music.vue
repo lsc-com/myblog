@@ -1,25 +1,5 @@
 <template>
     <div>
-        <div :class="nav_click" @click="openNav">
-        </div>
-        <ul :class="nav_obj" class="homem-nav">
-                <li @click="jump()">OPEN</li>
-                <li @click="jump()">HomePage</li>
-                <li @click="jump('classify')">Classify</li>
-                <li @click="jump('timer')">Timer</li>
-                <li>Music</li>
-                <li @click="jump('message')">Message</li>
-                <li @click="jump('about')">About</li>
-            <li class="homem-input">
-                <el-input
-                        @keyup.enter.native="searchIn"
-                        placeholder="请输入内容"
-                        prefix-icon="el-icon-search"
-                        v-model="homeInput"
-                ></el-input>
-            </li>
-            <li @click="closeNav"><i class="el-icon-circle-close"></i></li>
-        </ul>
         <div class="wrapper">
             <div class="player">
                 <div class="player__top">
@@ -144,19 +124,6 @@
                 </symbol>
             </defs>
         </svg>
-        <div class="homem-footer" style="margin-top: -1.2rem">
-            <div class="homem-footer-top">
-                <div>
-                    <h2>最新博文</h2>
-                    <span>这是最新博客</span>
-                </div>
-                <div>
-                    <h2>联系我</h2>
-                    <span>Email:1099421282@qq.com</span>
-                </div>
-            </div>
-            <div class="homem-footer-bot">{{nowTime}}</div>
-        </div>
     </div>
 </template>
 
@@ -166,15 +133,6 @@
 
         data() {
             return {
-                nav_obj: {
-                    init_nav: true,
-                    nav_in: false,
-                    nav_out: false
-                },
-                nav_click: {
-                    init_click: true,
-                    nav_click_out: false,
-                },
                 music_obj: {
                     init_music: true,
                     music_lists: false,
@@ -185,8 +143,6 @@
                     color: '#32b0da'
                 },
                 musicIndex: 0,
-                homeInput: '',
-                nowTime:'',
                 audio: null,
                 circleLeft: null,
                 barWidth: null,
@@ -282,32 +238,6 @@
             };
         },
         methods: {
-            searchIn() {
-                alert(this.homeInput)
-                this.homeInput = ''
-            },
-            openNav() {
-                this.nav_obj = {
-                    init_nav: false,
-                    nav_in: true,
-                    nav_out: false
-                }
-                this.nav_click = {
-                    init_click: false,
-                    nav_click_out: true
-                }
-            },
-            closeNav() {
-                this.nav_obj = {
-                    init_nav: false,
-                    nav_in: false,
-                    nav_out: true
-                }
-                this.nav_click = {
-                    init_click: true,
-                    nav_click_out: false
-                }
-            },
             jump(val){
                 if (val){
                     this.audio.pause()
@@ -452,23 +382,6 @@
                     this.currentTrackIndex
                     ].favorited;
             },
-            getTime () {
-                var _this = this;
-                let yy = new Date().getFullYear();
-                let mm = new Date().getMonth() + 1;
-                let dd = new Date().getDate();
-                let hh = new Date().getHours();
-                let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
-                // let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
-                // var d = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
-                // var time = new Date(d)
-                let timer = yy+'-'+mm+'-'+dd+' '+hh+':'+mf
-                _this.nowTime = timer
-                // _this.nowTime =String(time).substring(0,15) // 转换成日期字符串
-            },
-        },
-        mounted() {
-            this.getTime()
         },
         created() {
             let vm = this;

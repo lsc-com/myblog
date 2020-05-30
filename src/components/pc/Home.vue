@@ -271,6 +271,7 @@
                 }else {
                     this.currentPage++
                 }
+                document.documentElement.scrollTop = document.body.scrollTop = 0;
                 this.$https.get('/admin/firstBlogPage?pageNo='+this.currentPage).then((res) => {
                     let data = res.data
                     this.pageCount = res.data.pages
